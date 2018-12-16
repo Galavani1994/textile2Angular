@@ -1,0 +1,46 @@
+#registerProduction input {
+    margin: 5px;
+    Border-radius: 5px;
+}
+
+#registerProduction textarea {
+    margin: 5px;
+    Border-radius: 5px;
+}
+#registerProduction{
+    font-family: "2  Mitra";
+    text-align: right;
+}
+
+
+#productionDisplay input {
+    margin: 4px;
+    Border-radius: 3px;
+}
+
+h1 {
+    text-align: center;
+    font-family: "B Titr";
+
+}
+
+
+
+#productionDisplay {
+    text-align: center;
+    font-family: "2  Mitra";
+    font-size: medium;
+}
+
+#productionDisplay input {
+    text-align: center;
+}
+.table-wrapper-scroll-y
+{
+    display: block;
+    max-height: 350px;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    text-align: right;
+}
+

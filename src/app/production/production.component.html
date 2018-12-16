@@ -1,0 +1,72 @@
+<div>
+    <div>
+        <h1>مدیریت کالا</h1>
+    </div>
+    <div class="row">
+        <aside class="col-lg-4">
+            <form (ngSubmit)="saveProduction()">
+                <table id="registerProduction">
+
+                    <tr>
+                        <td>کدکالا</td>
+                        <input type="text" name="prid" [(ngModel)]="production.prid">
+                    </tr>
+                    <tr>
+                        <td>نام</td>
+                        <input type="text" name="prName" [(ngModel)]="production.prName">
+                    </tr>
+                    <tr>
+                        <td>متراژ</td>
+                        <input type="text" name="meterPr" [(ngModel)]="production.meterPr">
+                    </tr>
+                    <tr>
+                        <td>توضیح</td>
+                        <textarea rows="3" cols="19"></textarea>
+                    </tr>
+                    <tr>
+                        <td>تاریخ ثبت</td>
+                        <dp-date-picker #persian
+                                        [config]="datePickerConfig"
+                                        theme="dp-material">
+
+                        </dp-date-picker>
+                        <input type="text" [(ngModel)]="production.tarikh"  name="tarikh" >
+                    </tr>
+                    <tr>
+                        <input class="btn btn-primary" type="submit" value="ثبت">
+                    </tr>
+
+                </table>
+
+            </form>
+        </aside>
+        <aside class="col-lg-8">
+            <div class="table-wrapper-scroll-y">
+                <table id="productionDisplay">
+                    <tr>
+                        <td>کدکالا</td>
+                        <td>نام</td>
+                        <td>متراژ</td>
+                        <td>موجودی</td>
+                        <td>توضیحات</td>
+                        <td>تاریخ</td>
+                    </tr>
+                    <tr *ngFor="let data of productions">
+                        <td><input size="11" type="text" value="{{data.prid}}" #prid readonly></td>
+                        <td><input size="10" type="text" value="{{data.prName}}" #prName></td>
+                        <td><input size="10" type="text" value="{{data.meterPr}}" #meterPr></td>
+                        <td><input size="5" type="text" value="{{data.remainMeter}}" readonly></td>
+                        <td><input size="25" type="text" value="-"></td>
+                        <td><input size="10" type="text" value="{{data.tarikh | date: 'yyyy-MM-dd'}}" #tarikh></td>
+                        <td><input class="btn btn-danger" (click)="deleteProduction(data)" type="button" value="حذف">
+                            <input class="btn btn-primary"
+                                   (click)="editProduction(data.id,prid.value,prName.value,meterPr.value,tarikh.value)"
+                                   type="button" value="ویرایش">
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+        </aside>
+    </div>
+</div>
