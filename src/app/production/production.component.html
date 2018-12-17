@@ -3,8 +3,8 @@
         <h1>مدیریت کالا</h1>
     </div>
     <div class="row">
-        <aside class="col-lg-4">
-            <form (ngSubmit)="saveProduction()">
+        <aside class="col-lg-3">
+            <form (ngSubmit)="saveProduction()" autocomplete="off">
                 <table id="registerProduction">
 
                     <tr>
@@ -13,7 +13,7 @@
                     </tr>
                     <tr>
                         <td>نام</td>
-                        <input type="text" name="prName" [(ngModel)]="production.prName">
+                        <input type="text" autocomplete="false" name="prName" [(ngModel)]="production.prName">
                     </tr>
                     <tr>
                         <td>متراژ</td>
@@ -25,12 +25,7 @@
                     </tr>
                     <tr>
                         <td>تاریخ ثبت</td>
-                        <dp-date-picker #persian
-                                        [config]="datePickerConfig"
-                                        theme="dp-material">
-
-                        </dp-date-picker>
-                        <input type="text" [(ngModel)]="production.tarikh"  name="tarikh" >
+                        <input type="text" style="text-align: center" placeholder="تاریخ را انتخاب کنید" [(ngModel)]="production.tarikh"  name="tarikh" [dpDayPicker]="config">
                     </tr>
                     <tr>
                         <input class="btn btn-primary" type="submit" value="ثبت">
@@ -40,7 +35,7 @@
 
             </form>
         </aside>
-        <aside class="col-lg-8">
+        <aside class="col-lg-9">
             <div class="table-wrapper-scroll-y">
                 <table id="productionDisplay">
                     <tr>
@@ -58,8 +53,8 @@
                         <td><input size="5" type="text" value="{{data.remainMeter}}" readonly></td>
                         <td><input size="25" type="text" value="-"></td>
                         <td><input size="10" type="text" value="{{data.tarikh | date: 'yyyy-MM-dd'}}" #tarikh></td>
-                        <td><input class="btn btn-danger" (click)="deleteProduction(data)" type="button" value="حذف">
-                            <input class="btn btn-primary"
+                        <td><input class="btn btn-danger rounded-circle" (click)="deleteProduction(data)" type="button" value="حذف">
+                            <input class="btn btn-primary rounded-circle"
                                    (click)="editProduction(data.id,prid.value,prName.value,meterPr.value,tarikh.value)"
                                    type="button" value="ویرایش">
                         </td>

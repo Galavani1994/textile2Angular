@@ -1,15 +1,88 @@
-<p>
-  customer works!
-</p>
-<br>
-<br>
-<br>
-<br>
-<br>
-<p>
-  customer works!
-</p>
-<p>
-  customer works!
-</p>
+<div>
+    <div id="divtitle">
+        <h1>مدیریت مشتری</h1>
+    </div>
+    <div dir="rtl" class="row">
+        <aside class="col-lg-2 col-md-2">
+            <form autocomplete="off" (ngSubmit)="saveCustomer()">
+                <table id="registerCustomer">
+                    <tr>
+                        <td>کد(کدملی)</td>
+                        <input type="text" name="cuid" [(ngModel)]="customer.cuid">
+                    </tr>
+                    <tr>
+                        <td>نام</td>
+                        <input type="text" name="firstName" [(ngModel)]="customer.firstName">
+                    </tr>
+                    <tr>
+                        <td>نام خانوادگی</td>
+                        <input type="text" name="lastName" [(ngModel)]="customer.lastName">
+                    </tr>
+                    <tr>
+                        <td>ضامن</td>
+                        <input type="text" name="zamen" [(ngModel)]="customer.zamen">
+                    </tr>
+                    <tr>
+                        <td>شماره موبایل</td>
+                        <input type="text" name="mobilNum" [(ngModel)]="customer.mobileNum">
+                    </tr>
+                    <tr>
+                        <td>شماره تلفن</td>
+                        <input type="text" name="phoneNum" [(ngModel)]="customer.phoneNum">
+                    </tr>
+                    <tr>
+                        <td>آدرس</td>
+                        <textarea rows="2" cols="20" name="addressname" [(ngModel)]="customer.addressname"></textarea>
+                    </tr>
+                    <tr>
+                        <td>توضیح</td>
+                        <textarea rows="2" cols="20" name="descreption" [(ngModel)]="customer.descreption"></textarea>
+                    </tr>
+                    <tr>
+                        <td>تاریخ ثبت</td>
+                        <input type="text" style="text-align: center" placeholder="تاریخ را انتخاب کنید" name="tarikh"
+                               [(ngModel)]="customer.registerDate"
+                               [dpDayPicker]="config">
+                    </tr>
+                    <tr>
+                        <input class="btn btn-primary btn-sm" type="submit" value="ثبت">
+                    </tr>
+                </table>
+            </form>
+        </aside>
+        <aside class="col-lg-10 col-md-10">
+            <div class="table-wrapper-scroll-y" style="margin-right: 15px">
+                <table id="displayCu">
+                    <tr>
+                        <td>کدملی</td>
+                        <td>نام</td>
+                        <td>نام خانوادگی</td>
+                        <td>ضامن</td>
+                        <td>شماره تماس</td>
+                        <td>آدرس</td>
+                        <td>توضیحات</td>
+                        <td>آخرین مراجعه</td>
+                        <td>مانده</td>
+                    </tr>
+                    <tr *ngFor="let customer of customers">
+                        <td><input size="9" type="text" value="{{customer.cuid}}"></td>
+                        <td><input size="10" type="text" value="{{customer.firstName}}"></td>
+                        <td><input size="10" type="text" value="{{customer.lastName}}"></td>
+                        <td><input size="10" type="text" value="{{customer.zamen}}"></td>
+                        <td><input size="10" type="text" value="{{customer.lastName}}"></td>
+                        <td><input size="20" type="text" value="{{customer.addressname}}"></td>
+                        <td><input size="10" type="text" value="-"></td>
+                        <td><input size="8" type="text" value="-"></td>
+                        <td><input size="8" type="text" value="{{customer.mande |number}}"></td>
+                        <td>
+                            <button class="btn btn-danger btn-sm rounded-circle">حذف</button>
+                            <button class="btn btn-dark btn-sm rounded-circle">ویرایش</button>
+                            <button class="btn btn-info btn-sm rounded-circle">مشاهده</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </aside>
+    </div>
+</div>
 

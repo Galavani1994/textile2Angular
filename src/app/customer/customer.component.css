@@ -1,0 +1,32 @@
+#divtitle{
+    font-family: "B Titr";
+    text-align: center;
+}
+#registerCustomer{
+    font-family: "2  Mitra";
+    text-align: right;
+}
+#registerCustomer input{
+    margin: 5px;
+    Border-radius: 5px;
+
+}
+#registerCustomer textarea{
+    Border-radius: 10px;
+}
+#displayCu{
+    font-family: "2  Mitra";
+    text-align: center;
+}
+#displayCu input{
+    margin: 2px;
+    text-align: center;
+}
+.table-wrapper-scroll-y
+{
+    display: block;
+    max-height: 350px;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    text-align: right;
+}

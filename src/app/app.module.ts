@@ -8,16 +8,15 @@ import {CustomerComponent} from './customer/customer.component';
 import {ManagementSaleComponent} from './management-sale/management-sale.component';
 import {ReportComponent} from './report/report.component';
 import {RouterModule, Routes} from '@angular/router';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormsModule} from '@angular/forms';
 import {TextileService} from './textile.service';
 import {HttpClientModule} from '@angular/common/http';
 import {DpDatePickerModule} from 'ng2-jalali-date-picker';
-import {MaterialModule} from './material.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatDatepickerModule, MatFormFieldModule, MatInputModule, MatNativeDateModule} from '@angular/material';
 
 
-
-const rout: Routes = [
+const routes: Routes = [
     {path: '', component: ManagementSaleComponent},
     {path: 'production', component: ProductionComponent},
     {path: 'customer', component: CustomerComponent},
@@ -39,10 +38,14 @@ const rout: Routes = [
         BrowserModule,
         FormsModule,
         RouterModule,
-        RouterModule.forRoot(rout),
+        RouterModule.forRoot(routes),
         HttpClientModule,
         DpDatePickerModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        MatDatepickerModule,
+        MatInputModule,
+        MatFormFieldModule,
+        MatNativeDateModule
     ],
     providers: [TextileService],
     bootstrap: [AppComponent]

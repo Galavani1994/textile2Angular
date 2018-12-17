@@ -3,6 +3,7 @@ import {Production} from '../model/production';
 import {TextileService} from '../textile.service';
 import * as momentJalaali from 'moment-jalaali';
 import {DateAdapter} from '@angular/material';
+import {DatePickerComponent} from 'ng2-jalali-date-picker';
 
 @Component({
     selector: 'app-production',
@@ -14,9 +15,10 @@ export class ProductionComponent implements OnInit {
     production: Production = {id: null, prid: null, prName: null, meterPr: null, tarikh: null};
     editProductione: Production = {id: null, prid: null, prName: null, meterPr: null, tarikh: null};
     productions = [];
-    datePickerConfig = {
-        format: 'YYYY/MM/D',
 
+    config = {
+        theme: 'dp-material',
+        format: 'YYYY/MM/DD'
     };
 
 
@@ -44,7 +46,7 @@ export class ProductionComponent implements OnInit {
         this.production.tarikh = date;
         this.textileService.saveProduction(this.production).subscribe(
             value => {
-                console.log('[POST] create Customer successfully', value);
+                console.log('[POST] create Production successfully', value);
             }, error => {
                 console.log('FAIL to create Production!');
             },
@@ -54,6 +56,7 @@ export class ProductionComponent implements OnInit {
                         this.getall(data);
                     }
                 );
+                this.clear();
             });
     }
 
@@ -94,6 +97,14 @@ export class ProductionComponent implements OnInit {
                 );
             });
 
+    }
+
+    clear() {
+        this.production.id = null;
+        this.production.prid = null;
+        this.production.prName = null;
+        this.production.meterPr = null;
+        this.production.tarikh = null;
     }
 
 
