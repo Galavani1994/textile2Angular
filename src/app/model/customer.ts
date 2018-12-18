@@ -5,7 +5,7 @@ export class Customer {
     lastName ;
     addressname;
     mande ;
-    mobileNum ;
+    mobileNum;
     phoneNum ;
     descreption;
     registerDate ;

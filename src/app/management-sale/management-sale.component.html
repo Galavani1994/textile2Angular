@@ -1,119 +1,115 @@
 <div>
-  <div style="font-family: '2  Mitra'">
-    <div class="row" style="padding: 15px;">
-      <div>
-        <aside class="col-lg-5">
-          <table id="cuinfotbl" >
-            <tr>
-              <td>کدمشتری</td>
-              <td><input type="text"></td>
-            </tr>
-            <tr>
-              <td>نام</td>
-              <td><input type="text"></td>
-            </tr>
-            <tr>
-              <td>نام خانوادگی</td>
-              <td><input type="text"></td>
-            </tr>
+    <div style="font-family: '2  Mitra'">
+        <div class="row" style="padding: 15px;">
+            <div class="col-xl-3 col-lg-3 col-md-3">
+                <table id="cuinfotbl">
+                    <tr>
+                        <td>کدمشتری</td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>نام</td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>نام خانوادگی</td>
+                        <td><input type="text"></td>
+                    </tr>
 
-            <tr>
-              <td>ضامن</td>
-              <td><input type="text"></td>
-            </tr>
-            <tr>
-              <td>تلفن</td>
-              <td><input type="text"></td>
-            </tr>
-            <tr>
-              <td>آدرس</td>
-              <td><input type="text"></td>
-            </tr>
-            <tr>
-              <td>مانده حساب</td>
-              <td><input type="text"></td>
-            </tr>
-          </table>
-        </aside>
-      </div>
-      <div>
-        <aside class="col-lg-2">
-          <table id="prinfotbl" >
-            <tr>
-              <td>کدکالا</td>
-              <td><input type="text"></td>
-            </tr>
-            <tr>
-              <td>نام کالا</td>
-              <td><input type="text"></td>
-            </tr>
-            <tr>
-              <td>موجودی</td>
-              <td><input type="text"></td>
-            </tr>
-          </table>
-        </aside>
-      </div>
-      <div>
-        <aside class="col-lg-5">
-          <table id="sellinfotbl" style="margin: 0px 50px 0px 0px;" >
-            <tr>
-              <td>تحویلی</td>
-              <td><input size="9" type="text"></td>
-              <td>قیمت واحد</td>
-              <td><input size="12" type="text"></td>
-              <td>تخفیف</td>
-              <td><input size="12" type="text"></td>
-            </tr>
-            <tr>
-              <td>وجه</td>
-              <td><input size="12" type="text"></td>
-              <td>شماره فاکتور</td>
-              <td><input size="5" type="text"></td>
-              <td>مانده</td>
-              <td><input size="12" type="text"></td>
-            </tr>
-            <tr>
-              <td>تاریخ</td>
-              <td><input size="10" type="text"></td>
-              <td><input type="button" value="ذخیره"></td>
-            </tr>
-          </table>
-        </aside>
-      </div>
+                    <tr>
+                        <td>ضامن</td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>تلفن</td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>آدرس</td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>مانده حساب</td>
+                        <td><input type="text"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-xl-3 col-lg-3">
+                <table id="prinfotbl">
+                    <tr>
+                        <td>کدکالا</td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>نام کالا</td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>موجودی</td>
+                        <td><input type="text"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-xl-4 col-lg-4">
+                <table id="sellinfotbl" style="margin: 0px 50px 0px 0px;">
+                    <tr>
+                        <td>تحویلی</td>
+                        <td><input size="9" type="text"></td>
+                        <td>قیمت واحد</td>
+                        <td><input size="12" type="text"></td>
+                        <td>تخفیف</td>
+                        <td><input size="12" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>وجه</td>
+                        <td><input size="12" type="text"></td>
+                        <td>شماره فاکتور</td>
+                        <td><input size="5" type="text"></td>
+                        <td>مانده</td>
+                        <td><input size="12" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>تاریخ</td>
+                        <td><input size="10" type="text"></td>
+                        <td><input type="button" value="ذخیره"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
-  </div>
-  <div style="padding:0px 20px 5px 10px">
-    <div class="row" id="displayinfoCuPrdiv">
-      <table id="displayinfoCuPr">
-        <tr >
-          <td>کدکالا</td>
-          <td>نام کالا</td>
-          <td>تحویلی</td>
-          <td>قیمت</td>
-          <td>تخفیف</td>
-          <td>وجه</td>
-          <td> فاکتور</td>
-          <td>مانده</td>
-          <td>تاریخ</td>
-          <td>عملیات</td>
-        </tr>
-        <tr>
-          <td><input size="5" type="text" name="prid"></td>
-          <td><input type="text" name="prName"></td>
-          <td><input size="5" type="text" name="metercp"></td>
-          <td><input type="text" name="price" ></td>
-          <td><input type="text" name="discount"></td>
-          <td><input type="text" name="pay"></td>
-          <td><input size="5" type="text" name="factore"></td>
-          <td><input size="12" type="text" name="remain"></td>
-          <td><input size="10" type="text" name="date"></td>
-          <td>
-            <input type="button" class="btn btn-danger" name="delete" value="حذف">
-            <input type="button" class="btn btn-primary" name="edit" value="ویرایش">
-          </td>
-        </tr>
-      </table>
+    <div style="padding:0px 20px 5px 10px">
+        <div class="row" id="displayinfoCuPrdiv">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <table id="displayinfoCuPr">
+                    <tr>
+                        <td>کدکالا</td>
+                        <td>نام کالا</td>
+                        <td>تحویلی</td>
+                        <td>قیمت</td>
+                        <td>تخفیف</td>
+                        <td>وجه</td>
+                        <td> فاکتور</td>
+                        <td>مانده</td>
+                        <td>تاریخ</td>
+                        <td>عملیات</td>
+                    </tr>
+                    <tr>
+                        <td><input size="5" type="text" name="prid"></td>
+                        <td><input type="text" name="prName"></td>
+                        <td><input size="5" type="text" name="metercp"></td>
+                        <td><input type="text" name="price"></td>
+                        <td><input type="text" name="discount"></td>
+                        <td><input type="text" name="pay"></td>
+                        <td><input size="5" type="text" name="factore"></td>
+                        <td><input size="12" type="text" name="remain"></td>
+                        <td><input size="10" type="text" name="date"></td>
+                        <td>
+                            <input type="button" class="btn btn-danger" name="delete" value="حذف">
+                            <input type="button" class="btn btn-primary" name="edit" value="ویرایش">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
-  </div>
 </div>

@@ -3,7 +3,7 @@
         <h1>مدیریت مشتری</h1>
     </div>
     <div dir="rtl" class="row">
-        <aside class="col-lg-2 col-md-2">
+        <div class="col-xl-2 col-lg-2 col-md-2">
             <form autocomplete="off" (ngSubmit)="saveCustomer()">
                 <table id="registerCustomer">
                     <tr>
@@ -49,8 +49,8 @@
                     </tr>
                 </table>
             </form>
-        </aside>
-        <aside class="col-lg-10 col-md-10">
+        </div>
+        <div class="col-xl-10 col-lg-10 col-md-10">
             <div class="table-wrapper-scroll-y" style="margin-right: 15px">
                 <table id="displayCu">
                     <tr>
@@ -69,10 +69,10 @@
                         <td><input size="10" type="text" value="{{customer.firstName}}"></td>
                         <td><input size="10" type="text" value="{{customer.lastName}}"></td>
                         <td><input size="10" type="text" value="{{customer.zamen}}"></td>
-                        <td><input size="10" type="text" value="{{customer.lastName}}"></td>
+                        <td><input size="10" type="text" value="{{customer.mobileNum}}"></td>
                         <td><input size="20" type="text" value="{{customer.addressname}}"></td>
-                        <td><input size="10" type="text" value="-"></td>
-                        <td><input size="8" type="text" value="-"></td>
+                        <td><input size="10" type="text" value="{{customer.descreption}}"></td>
+                        <td><input size="8" type="text" value="{{customer.registerDate | date:'y/M/d'}}"></td>
                         <td><input size="8" type="text" value="{{customer.mande |number}}"></td>
                         <td>
                             <button class="btn btn-danger btn-sm rounded-circle">حذف</button>
@@ -82,7 +82,7 @@
                     </tr>
                 </table>
             </div>
-        </aside>
+        </div>
     </div>
 </div>
 

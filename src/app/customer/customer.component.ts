@@ -32,6 +32,8 @@ export class CustomerComponent implements OnInit {
 
     saveCustomer() {
         console.log(this.customer);
+        const date = new Date(this.customer.registerDate);
+        this.customer.registerDate = date;
         this.textileService.saveCustomer(this.customer).subscribe(
             value => {
                 console.log('[POST] create Customer successfully', value);
