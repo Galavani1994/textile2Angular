@@ -3,7 +3,7 @@
         <h1>مدیریت مشتری</h1>
     </div>
     <div dir="rtl" class="row">
-        <div class="col-xl-2 col-lg-2 col-md-2">
+        <div class="col-xl-3 col-lg-3 col-md-2">
             <form autocomplete="off" (ngSubmit)="saveCustomer()">
                 <table id="registerCustomer">
                     <tr>
@@ -50,7 +50,7 @@
                 </table>
             </form>
         </div>
-        <div class="col-xl-10 col-lg-10 col-md-10">
+        <div class="col-xl-9 col-lg-9 col-md-10">
             <div class="table-wrapper-scroll-y" style="margin-right: 15px">
                 <table id="displayCu">
                     <tr>
@@ -59,30 +59,149 @@
                         <td>نام خانوادگی</td>
                         <td>ضامن</td>
                         <td>شماره تماس</td>
-                        <td>آدرس</td>
                         <td>توضیحات</td>
                         <td>آخرین مراجعه</td>
                         <td>مانده</td>
                     </tr>
                     <tr *ngFor="let customer of customers">
-                        <td><input size="9" type="text" value="{{customer.cuid}}"></td>
+                        <td><input size="10" type="text" value="{{customer.cuid}}"></td>
                         <td><input size="10" type="text" value="{{customer.firstName}}"></td>
                         <td><input size="10" type="text" value="{{customer.lastName}}"></td>
                         <td><input size="10" type="text" value="{{customer.zamen}}"></td>
                         <td><input size="10" type="text" value="{{customer.mobileNum}}"></td>
-                        <td><input size="20" type="text" value="{{customer.addressname}}"></td>
                         <td><input size="10" type="text" value="{{customer.descreption}}"></td>
                         <td><input size="8" type="text" value="{{customer.registerDate | date:'y/M/d'}}"></td>
                         <td><input size="8" type="text" value="{{customer.mande |number}}"></td>
                         <td>
-                            <button class="btn btn-danger btn-sm rounded-circle">حذف</button>
-                            <button class="btn btn-dark btn-sm rounded-circle">ویرایش</button>
-                            <button class="btn btn-info btn-sm rounded-circle">مشاهده</button>
+                            <button class="btn btn-info btn-sm rounded-bottom" (click)="showCustomer(customer)"
+                                    data-toggle="modal" data-target="#myModal">مشاهده مشخصات کامل
+                            </button>
                         </td>
                     </tr>
                 </table>
             </div>
         </div>
     </div>
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div>
+                        <h4 class="modal-title" style="font-family: 'B Titr'">مشخصات مشتری</h4>
+                    </div>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div style="padding-right: 20px" class="row">
+                        <table id="visitCustomerInfo">
+                            <tr>
+                                <td>کدمشتری:</td>
+                                <td><input type="text" [(ngModel)]="editcustomer.cuid"></td>
+
+                            </tr>
+                            <tr>
+                                <td>نام:</td>
+                                <td><input [(ngModel)]="editcustomer.firstName"></td>
+
+                            </tr>
+                            <tr>
+                                <td>نام خانوادگی:</td>
+                                <td><input [(ngModel)]="editcustomer.lastName"></td>
+
+                            </tr>
+                            <tr>
+                                <td>آدرس:</td>
+                                <td><textarea rows="3" cols="19" [(ngModel)]="editcustomer.addressname"></textarea></td>
+
+                            </tr>
+                            <tr>
+                                <td>توضیحات:</td>
+                                <td><textarea rows="3" cols="19" [(ngModel)]="editcustomer.descreption"></textarea></td>
+                            </tr>
+                            <tr>
+                                <td>ضامن:</td>
+                                <td><input [(ngModel)]="editcustomer.zamen"></td>
+                            </tr>
+                            <tr>
+                                <td>شماره موبایل:</td>
+                                <td><input [(ngModel)]="editcustomer.mobileNum"></td>
+                            </tr>
+                            <tr>
+                                <td>شماره تماس:</td>
+                                <td><input [(ngModel)]="editcustomer.phoneNum"></td>
+                            </tr>
+                            <tr>
+                                <td>تاریخ ثبت:</td>
+                                <td><input [ngModel]="editcustomer.registerDate | date:'y/M/d'"
+                                           (ngModelChange)="editcustomer.registerDate=$event"></td>
+                            </tr>
+                            <tr>
+                                <td>تاریخ آخرین مراجعه:</td>
+                                <td><input [ngModel]="editcustomer.lastCome"
+                                           (ngModelChange)="editcustomer.lastCome=$event"></td>
+                            </tr>
+                            <tr>
+                                <td>مانده حساب:</td>
+                                <td><input [ngModel]="editcustomer.mande |number"
+                                           (ngModelChange)="editcustomer.mande=$event" name="mande"></td>
+                            </tr>
+                        </table>
+                        <table id="btnOP">
+                            <tr>
+                                <td><button type="button" (click)="editCustomer()" class="btn btn-primary btn-sm rounded "
+                                            style="font-family: '2  Mitra';">
+                                    ویرایش مشتری
+                                </button></td>
+                            </tr>
+                            <tr>
+                                <td><button type="button" (click)="deletCustomer(editcustomer.id)" class="btn btn-danger btn-sm rounded"
+                                            data-dismiss="modal" style="font-family: '2  Mitra';padding: 2px 12px 2px 12px">
+                                    حذف مشتری
+                                </button></td>
+                            </tr>
+                            <tr>
+                                <td> <button type="button" class="btn btn-dark btn-sm rounded" style="font-family: '2  Mitra';padding: 3px 13px 3px 13px">چاپ این فرم</button></td>
+                            </tr>
+                            <tr>
+                                <td> <button type="button" class="btn btn-dark btn-sm rounded" data-dismiss="modal"
+                                             style="font-family: '2  Mitra';padding: 3px 15px 3px 15px">
+                                    بستن پنجره
+                                </button></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+
+                    <div id="divCrudBtn">
+                        <button type="button" (click)="editCustomer()" class="btn btn-primary"
+                                style="font-family: '2  Mitra'">
+                            ویرایش مشتری
+                        </button>
+                        <button type="button" (click)="deletCustomer(editcustomer.id)" class="btn btn-danger"
+                                data-dismiss="modal" style="font-family: '2  Mitra'">
+                            حذف مشتری
+                        </button>
+                        <button type="button" class="btn btn-dark" style="font-family: '2  Mitra'">چاپ این فرم</button>
+                        <button type="button" class="btn btn-dark" data-dismiss="modal"
+                                style="font-family: '2  Mitra';margin-right:15px">
+                            بستن پنجره
+                        </button>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
+
 
