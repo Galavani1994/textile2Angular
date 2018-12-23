@@ -4,7 +4,7 @@
     </div>
     <div dir="rtl" class="row">
         <div class="col-xl-3 col-lg-3 col-md-2">
-            <form autocomplete="off" (ngSubmit)="saveCustomer()">
+
                 <table id="registerCustomer">
                     <tr>
                         <td>کد(کدملی)</td>
@@ -19,8 +19,14 @@
                         <input type="text" name="lastName" [(ngModel)]="customer.lastName">
                     </tr>
                     <tr>
-                        <td>ضامن</td>
-                        <input type="text" name="zamen" [(ngModel)]="customer.zamen">
+                        <td><a data-toggle="collapse" data-target="#demo" style="cursor: pointer">ضامن(کلیک کنید)</a>
+                        </td>
+                        <td>
+                            <div id="demo" class="collapse">
+                                <label>نام</label><input [(ngModel)]="customer.zamen[0].zamenName" type="text" name="zamenName" size="10"><br>
+                                <label>نام خانوادگی</label><input [(ngModel)]="customer.zamen[0].zamenFamily" name="zamenFamily" type="text" size="12">
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td>شماره موبایل</td>
@@ -41,14 +47,12 @@
                     <tr>
                         <td>تاریخ ثبت</td>
                         <input type="text" style="text-align: center" placeholder="تاریخ را انتخاب کنید" name="tarikh"
-                               [(ngModel)]="customer.registerDate"
-                               [dpDayPicker]="config">
+                               [(ngModel)]="customer.registerDate" [dpDayPicker]="config">
                     </tr>
                     <tr>
-                        <input class="btn btn-primary btn-sm" type="submit" value="ثبت">
+                        <input class="btn btn-primary btn-sm" type="button" value="ثبت" (click)="saveCustomer()">
                     </tr>
                 </table>
-            </form>
         </div>
         <div class="col-xl-9 col-lg-9 col-md-10">
             <div class="table-wrapper-scroll-y" style="margin-right: 15px">
@@ -67,7 +71,7 @@
                         <td><input size="10" type="text" value="{{customer.cuid}}"></td>
                         <td><input size="10" type="text" value="{{customer.firstName}}"></td>
                         <td><input size="10" type="text" value="{{customer.lastName}}"></td>
-                        <td><input size="10" type="text" value="{{customer.zamen}}"></td>
+                        <td><input size="10" type="text" value="{{customer.zamen[0].zamenName +' ' + customer.zamen[0].zamenFamily}}"></td>
                         <td><input size="10" type="text" value="{{customer.mobileNum}}"></td>
                         <td><input size="10" type="text" value="{{customer.descreption}}"></td>
                         <td><input size="8" type="text" value="{{customer.registerDate | date:'y/M/d'}}"></td>
@@ -125,7 +129,7 @@
                             </tr>
                             <tr>
                                 <td>ضامن:</td>
-                                <td><input [(ngModel)]="editcustomer.zamen"></td>
+                                <td><input size="8" [(ngModel)]="editcustomer.zamen[0].zamenName"><input size="8" [(ngModel)]="editcustomer.zamen[0].zamenFamily" ></td>
                             </tr>
                             <tr>
                                 <td>شماره موبایل:</td>
@@ -147,31 +151,44 @@
                             </tr>
                             <tr>
                                 <td>مانده حساب:</td>
-                                <td><input [ngModel]="editcustomer.mande |number"
+                                <td><input [ngModel]="editcustomer.mande"
                                            (ngModelChange)="editcustomer.mande=$event" name="mande"></td>
                             </tr>
                         </table>
                         <table id="btnOP">
                             <tr>
-                                <td><button type="button" (click)="editCustomer()" class="btn btn-primary btn-sm rounded "
+                                <td>
+                                    <button type="button" (click)="editCustomer()"
+                                            class="btn btn-primary btn-sm rounded "
                                             style="font-family: '2  Mitra';">
-                                    ویرایش مشتری
-                                </button></td>
+                                        ویرایش مشتری
+                                    </button>
+                                </td>
                             </tr>
                             <tr>
-                                <td><button type="button" (click)="deletCustomer(editcustomer.id)" class="btn btn-danger btn-sm rounded"
-                                            data-dismiss="modal" style="font-family: '2  Mitra';padding: 2px 12px 2px 12px">
-                                    حذف مشتری
-                                </button></td>
+                                <td>
+                                    <button type="button" (click)="deletCustomer(editcustomer.id)"
+                                            class="btn btn-danger btn-sm rounded"
+                                            data-dismiss="modal"
+                                            style="font-family: '2  Mitra';padding: 2px 12px 2px 12px">
+                                        حذف مشتری
+                                    </button>
+                                </td>
                             </tr>
                             <tr>
-                                <td> <button type="button" class="btn btn-dark btn-sm rounded" style="font-family: '2  Mitra';padding: 3px 13px 3px 13px">چاپ این فرم</button></td>
+                                <td>
+                                    <button type="button" class="btn btn-dark btn-sm rounded"
+                                            style="font-family: '2  Mitra';padding: 3px 13px 3px 13px">چاپ این فرم
+                                    </button>
+                                </td>
                             </tr>
                             <tr>
-                                <td> <button type="button" class="btn btn-dark btn-sm rounded" data-dismiss="modal"
-                                             style="font-family: '2  Mitra';padding: 3px 15px 3px 15px">
-                                    بستن پنجره
-                                </button></td>
+                                <td>
+                                    <button type="button" class="btn btn-dark btn-sm rounded" data-dismiss="modal"
+                                            style="font-family: '2  Mitra';padding: 3px 15px 3px 15px">
+                                        بستن پنجره
+                                    </button>
+                                </td>
                             </tr>
                         </table>
                     </div>

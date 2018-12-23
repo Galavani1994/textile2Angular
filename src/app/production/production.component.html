@@ -25,7 +25,8 @@
                     </tr>
                     <tr>
                         <td>تاریخ ثبت</td>
-                        <input type="text" style="text-align: center" placeholder="تاریخ را انتخاب کنید" [(ngModel)]="production.tarikh"  name="tarikh" [dpDayPicker]="config">
+                        <input type="text" style="text-align: center" placeholder="تاریخ را انتخاب کنید"
+                               [(ngModel)]="production.tarikh" name="tarikh" [dpDayPicker]="config">
                     </tr>
                     <tr>
                         <input class="btn btn-primary" type="submit" value="ثبت">
@@ -53,7 +54,8 @@
                         <td><input size="5" type="text" value="{{data.remainMeter}}" readonly></td>
                         <td><input size="25" type="text" value="-"></td>
                         <td><input size="10" type="text" value="{{data.tarikh | date: 'yyyy-MM-dd'}}" #tarikh></td>
-                        <td><input class="btn btn-danger rounded-circle" (click)="deleteProduction(data)" type="button" value="حذف">
+                        <td><input class="btn btn-danger rounded-circle" (click)="deleteProduction(data)" type="button"
+                                   value="حذف">
                             <input class="btn btn-primary rounded-circle"
                                    (click)="editProduction(data.id,prid.value,prName.value,meterPr.value,tarikh.value)"
                                    type="button" value="ویرایش">

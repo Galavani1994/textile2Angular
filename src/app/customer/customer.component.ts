@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {TextileService} from '../textile.service';
 import {Customer} from '../model/customer';
+import {Zamen} from '../model/zamen';
+import {ObjectOrientedRenderer3} from '@angular/core/src/render3/interfaces/renderer';
+
 
 @Component({
     selector: 'app-customer',
@@ -8,23 +11,44 @@ import {Customer} from '../model/customer';
     styleUrls: ['./customer.component.css']
 })
 export class CustomerComponent implements OnInit {
+    constructor(private textileService: TextileService) {
+    }
 
     config = {
         format: 'YYYY/MM/DD'
     };
     customers = [];
-    customer: Customer = {
-        id: null, cuid: null, firstName: null, lastName: null, addressname: null, mande: null, mobileNum: null,
-        phoneNum: null, descreption: null, registerDate: null, lastCome: null, zamen: null
-    };
-    editcustomer: Customer = {
-        id: null, cuid: null, firstName: null, lastName: null, addressname: null, mande: null, mobileNum: null,
-        phoneNum: null, descreption: null, registerDate: null, lastCome: null, zamen: null
+
+    customer: Customer ={
+        id: null,
+        cuid: null,
+        firstName: null,
+        lastName: null,
+        addressname: null,
+        mande: null,
+        mobileNum: null,
+        phoneNum: null,
+        descreption: null,
+        registerDate: null,
+        lastCome: null,
+        zamen: [{id: null, zamenName: null, zamenFamily: null}]
     };
 
+    editcustomer: Customer ={
+        id: null,
+        cuid: null,
+        firstName: null,
+        lastName: null,
+        addressname: null,
+        mande: null,
+        mobileNum: null,
+        phoneNum: null,
+        descreption: null,
+        registerDate: null,
+        lastCome: null,
+        zamen: [{id: null, zamenName: null, zamenFamily: null}]
+    };
 
-    constructor(private textileService: TextileService) {
-    }
 
     ngOnInit() {
         this.textileService.getAllCustomer().subscribe(
@@ -36,14 +60,16 @@ export class CustomerComponent implements OnInit {
     }
 
     saveCustomer() {
-        const date = new Date(this.customer.registerDate);
-        this.customer.registerDate = date;
+        console.log(this.customer);
+        const date = this.customer.registerDate;
+        const date1 = new Date(date);
+        this.customer.registerDate = date1;
         this.textileService.saveCustomer(this.customer).subscribe(
-            value => {
-                console.log('[POST] create Customer successfully', value);
+            () => {
+                console.log('Customer Save Successfull....');
             },
-            Error => {
-                console.log('FAIL to create Customer!');
+            error1 => {
+                console.log('Fail...');
             },
             () => {
                 this.textileService.getAllCustomer().subscribe(
@@ -61,6 +87,7 @@ export class CustomerComponent implements OnInit {
 
     showCustomer(customer: Customer) {
         this.editcustomer = customer;
+        console.log(customer);
     }
 
     deletCustomer(id) {
@@ -85,7 +112,7 @@ export class CustomerComponent implements OnInit {
         console.log(this.editcustomer);
         this.textileService.editCustomer(this.editcustomer).subscribe(
             value => {
-                console.log('[POST] create Customer successfully', value);
+                console.log('[POST] Update Customer successfully', value);
             },
             Error => {
                 console.log('FAIL to create Customer!');

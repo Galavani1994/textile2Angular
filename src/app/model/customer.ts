@@ -1,15 +1,18 @@
-export class Customer {
-    id ;
-    cuid ;
-    firstName ;
-    lastName ;
+import {Zamen} from './zamen';
+
+export interface Customer {
+    id;
+    cuid;
+    firstName;
+    lastName;
     addressname;
-    mande ;
+    mande;
     mobileNum;
-    phoneNum ;
+    phoneNum;
     descreption;
-    registerDate ;
-    lastCome ;
-    zamen ;
+    registerDate;
+    lastCome;
+    zamen: Zamen;
+
 
 }

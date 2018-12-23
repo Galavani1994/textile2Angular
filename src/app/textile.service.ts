@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Production} from './model/production';
 import {Customer} from './model/customer';
+import {Zamen} from './model/zamen';
 
 
 @Injectable({
@@ -34,9 +35,10 @@ export class TextileService {
         return this.http.get('http://localhost:8091/cu/customerPage');
     }
 
-    saveCustomer(customer: Customer) {
+    saveCustomer(customer) {
         return this.http.post(TextileService.POST_CUSTOMER_URL, customer, {headers: this.headers});
     }
+
     editCustomer(customer) {
         return this.http.post(TextileService.POST_CUSTOMER_URL, customer, {headers: this.headers});
     }
@@ -44,4 +46,6 @@ export class TextileService {
     deleteCustomer(id) {
         return this.http.get('http://localhost:8091/cu/deleteCu/' + id);
     }
+
+
 }
