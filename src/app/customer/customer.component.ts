@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {TextileService} from '../textile.service';
 import {Customer} from '../model/customer';
 import {Zamen} from '../model/zamen';
-import {ObjectOrientedRenderer3} from '@angular/core/src/render3/interfaces/renderer';
+import {textBinding} from '@angular/core/src/render3';
 
 
 @Component({
@@ -18,8 +18,8 @@ export class CustomerComponent implements OnInit {
         format: 'YYYY/MM/DD'
     };
     customers = [];
-
-    customer: Customer ={
+    zamen: Zamen = {id: null, zamenName: null, zamenFamily: null};
+    customer: Customer = {
         id: null,
         cuid: null,
         firstName: null,
@@ -34,7 +34,7 @@ export class CustomerComponent implements OnInit {
         zamen: [{id: null, zamenName: null, zamenFamily: null}]
     };
 
-    editcustomer: Customer ={
+    editcustomer: Customer = {
         id: null,
         cuid: null,
         firstName: null,
@@ -128,6 +128,17 @@ export class CustomerComponent implements OnInit {
             }
         );
 
+
+    }
+
+    zamenRegister() {
+        this.editcustomer.zamen.push(this.zamen);
+        console.log(this.editcustomer);
+        this.textileService.editCustomer(this.editcustomer).subscribe(
+            () => {
+                console.log('successfull insert Zamen...');
+            }
+        );
 
     }
 }
