@@ -37,7 +37,7 @@
                 <tr>
                     <td>تاریخ ثبت</td>
                     <input type="text" style="text-align: center" placeholder="تاریخ را انتخاب کنید" name="tarikh"
-                           [(ngModel)]="customer.registerDate" [dpDayPicker]="config">
+                           [ngModel]="customer.registerDate | date:'yyyy/MM/dd'" (ngModelChange)="customer.registerDate=$event" [dpDayPicker]="config">
                 </tr>
                 <tr>
                     <input class="btn btn-primary btn-sm" type="button" value="ثبت" (click)="saveCustomer()">

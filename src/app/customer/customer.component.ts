@@ -130,7 +130,6 @@ export class CustomerComponent implements OnInit {
 
 
     }
-
     zamenRegister() {
         this.editcustomer.zamen.push(this.zamen);
         console.log(this.editcustomer);

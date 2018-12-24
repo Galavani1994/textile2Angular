@@ -14,7 +14,7 @@ export class ProductionComponent implements OnInit {
 
     production: Production = {id: null, prid: null, prName: null, meterPr: null, tarikh: null};
     editProductione: Production = {id: null, prid: null, prName: null, meterPr: null, tarikh: null};
-
+    productions = [];
 
     config = {
         theme: 'dp-material',

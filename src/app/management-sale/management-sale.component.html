@@ -5,32 +5,28 @@
                 <table id="cuinfotbl">
                     <tr>
                         <td>کدمشتری</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" (keyup.enter)="getCustomer($event)" value="{{loadedCustomer.cuid}}"></td>
                     </tr>
                     <tr>
                         <td>نام</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" value="{{loadedCustomer.firstName}}"></td>
                     </tr>
                     <tr>
                         <td>نام خانوادگی</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" value="{{loadedCustomer.lastName}}"></td>
                     </tr>
 
                     <tr>
-                        <td>ضامن</td>
-                        <td><input type="text"></td>
-                    </tr>
-                    <tr>
                         <td>تلفن</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" value="{{loadedCustomer.mobileNum}}"></td>
                     </tr>
                     <tr>
                         <td>آدرس</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" value="{{loadedCustomer.addressname}}"></td>
                     </tr>
                     <tr>
                         <td>مانده حساب</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" value="{{loadedCustomer.mande}}"></td>
                     </tr>
                 </table>
             </div>
@@ -38,15 +34,15 @@
                 <table id="prinfotbl">
                     <tr>
                         <td>کدکالا</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" (keyup.enter)="getProduction($event)" value="{{loadedProduction.prid}}"></td>
                     </tr>
                     <tr>
                         <td>نام کالا</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" value="{{loadedProduction.prName}}"></td>
                     </tr>
                     <tr>
                         <td>موجودی</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" value="{{loadedProduction.remainMeter}}"></td>
                     </tr>
                 </table>
             </div>
