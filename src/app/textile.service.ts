@@ -12,7 +12,7 @@ import {Zamen} from './model/zamen';
 export class TextileService {
 
     private static readonly POST_PRODUCTION_URL = 'http://localhost:8091/pr/savePr';
-    private static readonly POST_CUSTOMER_URL = 'http://localhost:8091/cu/saveCu';
+    static readonly POST_CUSTOMER_URL = 'http://localhost:8091/cu/saveCu';
     private headers = new HttpHeaders({'Content-Type': 'application/json'});
 
     constructor(private http: HttpClient) {

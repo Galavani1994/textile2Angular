@@ -5,28 +5,28 @@
                 <table id="cuinfotbl">
                     <tr>
                         <td>کدمشتری</td>
-                        <td><input type="text" (keyup.enter)="getCustomer($event)" value="{{loadedCustomer.cuid}}"></td>
+                        <td><input type="text" (keyup.enter)="getCustomer($event)" value="{{cpAndCustomer[0].cuid}}"></td>
                     </tr>
                     <tr>
                         <td>نام</td>
-                        <td><input type="text" value="{{loadedCustomer.firstName}}"></td>
+                        <td><input type="text" value="{{cpAndCustomer[0].firstName}}"></td>
                     </tr>
                     <tr>
                         <td>نام خانوادگی</td>
-                        <td><input type="text" value="{{loadedCustomer.lastName}}"></td>
+                        <td><input type="text" value="{{cpAndCustomer[0].lastName}}"></td>
                     </tr>
 
                     <tr>
                         <td>تلفن</td>
-                        <td><input type="text" value="{{loadedCustomer.mobileNum}}"></td>
+                        <td><input type="text" value="{{cpAndCustomer[0].mobileNum}}"></td>
                     </tr>
                     <tr>
                         <td>آدرس</td>
-                        <td><input type="text" value="{{loadedCustomer.addressname}}"></td>
+                        <td><input type="text" value="{{cpAndCustomer[0].addressname}}"></td>
                     </tr>
                     <tr>
                         <td>مانده حساب</td>
-                        <td><input type="text" value="{{loadedCustomer.mande}}"></td>
+                        <td><input type="text" value="{{cpAndCustomer[0].mande}}"></td>
                     </tr>
                 </table>
             </div>
@@ -34,7 +34,8 @@
                 <table id="prinfotbl">
                     <tr>
                         <td>کدکالا</td>
-                        <td><input type="text" (keyup.enter)="getProduction($event)" value="{{loadedProduction.prid}}"></td>
+                        <td><input type="text" (keyup.enter)="getProduction($event)" value="{{loadedProduction.prid}}">
+                        </td>
                     </tr>
                     <tr>
                         <td>نام کالا</td>
@@ -50,24 +51,33 @@
                 <table id="sellinfotbl" style="margin: 0px 50px 0px 0px;">
                     <tr>
                         <td>تحویلی</td>
-                        <td><input size="9" type="text"></td>
+                        <td><input size="9" type="text" [(ngModel)]="operationPr.metercp" #metercp
+                                   name="metercp"></td>
                         <td>قیمت واحد</td>
-                        <td><input size="12" type="text"></td>
+                        <td><input size="12" type="text" [(ngModel)]="operationPr.price" #price
+                                   name="price"></td>
                         <td>تخفیف</td>
-                        <td><input size="12" type="text"></td>
+                        <td><input size="12" type="text" [(ngModel)]="operationPr.discount" #discount
+                                   name="discount"></td>
                     </tr>
                     <tr>
                         <td>وجه</td>
-                        <td><input size="12" type="text"></td>
+                        <td><input size="12" type="text" [(ngModel)]="operationPr.pay" #pay
+                                   name="pay"></td>
                         <td>شماره فاکتور</td>
-                        <td><input size="5" type="text"></td>
+                        <td><input size="5" type="text" [(ngModel)]="operationPr.factore"
+                                   name="factore" (keyup.enter)="cpInfo()"></td>
                         <td>مانده</td>
-                        <td><input size="12" type="text"></td>
+                        <td><input size="12" type="text" [ngModel]="operationPr.remain | number"
+                                   (ngModelChange)="operationPr.remain"
+                                   name="remain"></td>
                     </tr>
                     <tr>
                         <td>تاریخ</td>
-                        <td><input size="10" type="text"></td>
-                        <td><input type="button" value="ذخیره"></td>
+                        <td><input size="10" type="text" [ngModel]="operationPr.kaladate | date:'yyyy/MM/dd'"
+                                   (ngModelChange)="operationPr.kaladate"
+                                   name="kaladate" style="text-align: center"></td>
+                        <td><input type="button" value="ذخیره" (click)="cpInfo()"></td>
                     </tr>
                 </table>
             </div>
@@ -89,8 +99,8 @@
                         <td>تاریخ</td>
                         <td>عملیات</td>
                     </tr>
-                    <tr>
-                        <td><input size="5" type="text" name="prid"></td>
+                    <tr *ngFor="let cp of cpAndCustomer[1]">
+                        <td><input size="5" type="text" name="prid" value="{{cp.prid}}"></td>
                         <td><input type="text" name="prName"></td>
                         <td><input size="5" type="text" name="metercp"></td>
                         <td><input type="text" name="price"></td>

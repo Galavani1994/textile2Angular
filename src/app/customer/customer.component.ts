@@ -19,7 +19,7 @@ export class CustomerComponent implements OnInit {
     };
     customers = [];
     zamen: Zamen = {id: null, zamenName: null, zamenFamily: null};
-    customer: Customer = {
+    customer = {
         id: null,
         cuid: null,
         firstName: null,
@@ -34,7 +34,7 @@ export class CustomerComponent implements OnInit {
         zamen: [{id: null, zamenName: null, zamenFamily: null}]
     };
 
-    editcustomer: Customer = {
+    editcustomer = [{
         id: null,
         cuid: null,
         firstName: null,
@@ -47,7 +47,7 @@ export class CustomerComponent implements OnInit {
         registerDate: null,
         lastCome: null,
         zamen: [{id: null, zamenName: null, zamenFamily: null}]
-    };
+    }];
 
 
     ngOnInit() {
@@ -85,7 +85,7 @@ export class CustomerComponent implements OnInit {
         return this.customers = data;
     }
 
-    showCustomer(customer: Customer) {
+    showCustomer(customer) {
         this.editcustomer = customer;
         console.log(customer);
     }
@@ -130,6 +130,7 @@ export class CustomerComponent implements OnInit {
 
 
     }
+
     zamenRegister() {
         this.editcustomer.zamen.push(this.zamen);
         console.log(this.editcustomer);
