@@ -1,9 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import * as moment from 'ng2-jalali-date-picker';
-import {FormBuilder, FormControl} from '@angular/forms';
-import {DateAdapter} from '@angular/material';
-import {Zamen} from '../model/zamen';
-import {TextileService} from '../textile.service';
+import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
+
+
 
 @Component({
     selector: 'app-report',
@@ -13,12 +10,18 @@ import {TextileService} from '../textile.service';
 export class ReportComponent implements OnInit {
 
 
-    constructor(private textileService: TextileService) {
+    constructor(private renderer: Renderer2) {
+    }
+
+    setFocus() {
+        this.renderer.selectRootElement('#firstname').focus();
     }
 
 
     ngOnInit() {
+        this.renderer.selectRootElement('#inp').focus();
     }
+
 
 
 }

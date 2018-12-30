@@ -18,7 +18,7 @@ export class CustomerComponent implements OnInit {
         format: 'YYYY/MM/DD'
     };
     customers = [];
-    zamen: Zamen = {id: null, zamenName: null, zamenFamily: null};
+    zamen = {id: null, zamenName: null, zamenFamily: null};
     customer = {
         id: null,
         cuid: null,

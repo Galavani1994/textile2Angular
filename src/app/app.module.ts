@@ -15,6 +15,7 @@ import {DpDatePickerModule} from 'ng2-jalali-date-picker';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatDatepickerModule, MatFormFieldModule, MatInputModule, MatNativeDateModule} from '@angular/material';
 import {ManagementsaleService} from './managementsale.service';
+import { FocusDirective } from './focus.directive';
 
 
 const routes: Routes = [

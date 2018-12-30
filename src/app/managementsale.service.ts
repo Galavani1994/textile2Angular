@@ -9,6 +9,7 @@ import {TextileService} from './textile.service';
 export class ManagementsaleService {
 
     static readonly POST_CP_URL = 'http://localhost:8091/cp/saveCP';
+    static readonly POST_EDITCP_URL = 'http://localhost:8091/cp/editcp';
 
     private headers = new HttpHeaders({'Content-Type': 'application/json'});
 
@@ -26,5 +27,13 @@ export class ManagementsaleService {
 
     saveCp(cp) {
         return this.http.post(ManagementsaleService.POST_CP_URL, cp, {headers: this.headers});
+    }
+
+    deleteCP(id) {
+        return this.http.get('http://localhost:8091/cp/deletCP/' + id);
+    }
+
+    editCp(cp) {
+        return this.http.post(ManagementsaleService.POST_EDITCP_URL, cp, {headers: this.headers});
     }
 }

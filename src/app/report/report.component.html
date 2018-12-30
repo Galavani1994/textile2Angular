@@ -1,17 +1,5 @@
 <div>
-    <form>
-        <table>
-            <tr>
-                <td>name</td>
-                <td><input type="text" [(ngModel)]="zamen.zamenName" name="zamenName"></td>
-            </tr>
-            <tr>
-                <td>family</td>
-                <td><input type="text" [(ngModel)]="zamen.zamenFamily" name="zamenFamily"></td>
-            </tr>
-            <tr>
-                <input type="submit" value="regiter">
-            </tr>
-        </table>
-    </form>
+    <input type="text" placeholder="firstnaem"  id="firstname"><br>
+    <input type="text" placeholder="lastname"  (keydown.enter)="setFocus()" id="inp">
+    <button (click)="setFocus()">Set Focus</button>
 </div>

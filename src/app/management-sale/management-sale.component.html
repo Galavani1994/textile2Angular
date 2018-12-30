@@ -5,7 +5,8 @@
                 <table id="cuinfotbl">
                     <tr>
                         <td>کدمشتری</td>
-                        <td><input type="text" (keyup.enter)="getCustomer($event)" value="{{cpAndCustomer[0].cuid}}"></td>
+                        <td><input type="text" (keyup.enter)="getCustomer($event)" value="{{cpAndCustomer[0].cuid}}"
+                                   id="cuid"></td>
                     </tr>
                     <tr>
                         <td>نام</td>
@@ -26,7 +27,7 @@
                     </tr>
                     <tr>
                         <td>مانده حساب</td>
-                        <td><input type="text" value="{{cpAndCustomer[0].mande}}"></td>
+                        <td><input type="text" value="{{cpAndCustomer[0].mande | number}}"></td>
                     </tr>
                 </table>
             </div>
@@ -34,7 +35,8 @@
                 <table id="prinfotbl">
                     <tr>
                         <td>کدکالا</td>
-                        <td><input type="text" (keyup.enter)="getProduction($event)" value="{{loadedProduction.prid}}">
+                        <td><input type="text" (keyup.enter)="getProduction($event)" value="{{loadedProduction.prid}}"
+                                   id="prid">
                         </td>
                     </tr>
                     <tr>
@@ -51,22 +53,26 @@
                 <table id="sellinfotbl" style="margin: 0px 50px 0px 0px;">
                     <tr>
                         <td>تحویلی</td>
-                        <td><input size="9" type="text" [(ngModel)]="operationPr.metercp" #metercp
-                                   name="metercp"></td>
+                        <td><input size="9" type="text" [(ngModel)]="operationPr.metercp"
+                                   (keyup.enter)="nextinput($event)"
+                                   name="metercp" id="metercp"></td>
                         <td>قیمت واحد</td>
-                        <td><input size="12" type="text" [(ngModel)]="operationPr.price" #price
-                                   name="price"></td>
+                        <td><input size="12" type="text" [(ngModel)]="operationPr.price"
+                                   (keyup.enter)="nextinput($event)"
+                                   name="price" id="price"></td>
                         <td>تخفیف</td>
-                        <td><input size="12" type="text" [(ngModel)]="operationPr.discount" #discount
-                                   name="discount"></td>
+                        <td><input size="12" type="text" [(ngModel)]="operationPr.discount"
+                                   (keyup.enter)="nextinput($event)"
+                                   name="discount" id="discount"></td>
                     </tr>
                     <tr>
                         <td>وجه</td>
-                        <td><input size="12" type="text" [(ngModel)]="operationPr.pay" #pay
-                                   name="pay"></td>
+                        <td><input size="12" type="text" [(ngModel)]="operationPr.pay"
+                                   (keyup.enter)="nextinput($event)"
+                                   name="pay" id="pay"></td>
                         <td>شماره فاکتور</td>
-                        <td><input size="5" type="text" [(ngModel)]="operationPr.factore"
-                                   name="factore" (keyup.enter)="cpInfo()"></td>
+                        <td><input size="5" type="text" [(ngModel)]="operationPr.factore" id="factore"
+                                   name="factore" (keyup.enter)="savecpInfo()"></td>
                         <td>مانده</td>
                         <td><input size="12" type="text" [ngModel]="operationPr.remain | number"
                                    (ngModelChange)="operationPr.remain"
@@ -77,7 +83,7 @@
                         <td><input size="10" type="text" [ngModel]="operationPr.kaladate | date:'yyyy/MM/dd'"
                                    (ngModelChange)="operationPr.kaladate"
                                    name="kaladate" style="text-align: center"></td>
-                        <td><input type="button" value="ذخیره" (click)="cpInfo()"></td>
+                        <td><input type="button" value="ذخیره" (click)="savecpInfo()"></td>
                     </tr>
                 </table>
             </div>
@@ -85,7 +91,7 @@
     </div>
     <div style="padding:0px 20px 5px 10px">
         <div class="row" id="displayinfoCuPrdiv">
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 table-wrapper-scroll-y">
                 <table id="displayinfoCuPr">
                     <tr>
                         <td>کدکالا</td>
@@ -101,17 +107,19 @@
                     </tr>
                     <tr *ngFor="let cp of cpAndCustomer[1]">
                         <td><input size="5" type="text" name="prid" value="{{cp.prid}}"></td>
-                        <td><input type="text" name="prName"></td>
-                        <td><input size="5" type="text" name="metercp"></td>
-                        <td><input type="text" name="price"></td>
-                        <td><input type="text" name="discount"></td>
-                        <td><input type="text" name="pay"></td>
-                        <td><input size="5" type="text" name="factore"></td>
-                        <td><input size="12" type="text" name="remain"></td>
-                        <td><input size="10" type="text" name="date"></td>
+                        <td><input type="text" name="prName" value="{{cp.prName}}"></td>
+                        <td><input size="5" type="text" name="metercp" value="{{cp.metercp}}"></td>
+                        <td><input type="text" name="price" value="{{cp.price |number}}"></td>
+                        <td><input type="text" name="discount" value="{{cp.discount |number}}"></td>
+                        <td><input type="text" name="pay" value="{{cp.pay |number}}"></td>
+                        <td><input size="5" type="text" name="factore" value="{{cp.factore}}"></td>
+                        <td><input size="12" type="text" name="remain" value="{{cp.remain |number}}"></td>
+                        <td><input size="10" type="text" name="date" value="{{cp.kaladate | date:'yyyy/MM/dd'}}"></td>
                         <td>
-                            <input type="button" class="btn btn-danger" name="delete" value="حذف">
-                            <input type="button" class="btn btn-primary" name="edit" value="ویرایش">
+                            <input type="button" class="btn btn-danger" name="delete" (click)="deleteCp(cp)"
+                                   value="حذف">
+                            <input type="button" class="btn btn-primary" name="edit" value="ویرایش"
+                                   (click)="editCp(cp)">
                         </td>
                     </tr>
                 </table>

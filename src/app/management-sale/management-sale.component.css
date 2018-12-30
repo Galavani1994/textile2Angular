@@ -1,6 +1,7 @@
 #cuinfotbl input {
     margin:5px 15px 5px 5px;
     Border-radius: 5px;
+    text-align: center;
 
 }
 
@@ -27,13 +28,21 @@
 #displayinfoCuPr input {
     margin: 4px;
     Border-radius: 3px;
+    text-align: center;
 }
 
 #displayinfoCuPr {
-
     text-align: center;
     font-family: "2  Mitra";
     font-style: revert;
     font-size:medium;
 
+}
+.table-wrapper-scroll-y
+{
+    display: block;
+    max-height: 250px;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    text-align: right;
 }
