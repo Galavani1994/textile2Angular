@@ -1,6 +1,9 @@
+
+
 <div>
     <div>
-        <h1>مدیریت کالا</h1>
+        <h1>مدیریت کالا<a style="font-size: small;cursor: pointer" data-toggle="modal" data-target="#searchModal">
+            جستجوی کالا</a></h1>
     </div>
     <div class="row">
         <aside class="col-lg-3">
@@ -65,5 +68,38 @@
                 </table>
             </div>
         </aside>
+    </div>
+    <!-- The Modal -->
+    <div class="modal" id="searchModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header" dir="rtl">
+                    <h5 class="modal-title" style="font-family: '2  Mitra'">جستجوی کالا</h5>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <input type="text" placeholder="کالای مورد نظر خود را جستجو کنید" class="form-control"
+                    (keydown.enter)="searchResult($event)">
+                    <div style="margin-top: 15px;margin-right: 70px">
+                        <table id="searchingPr">
+                            <tr>
+                                <td>کدکالا</td>
+                                <td>نام کالا</td>
+                                <td>متراژ</td>
+                                <td>تاریخ</td>
+                            </tr>
+                            <tr *ngFor="let pr of prSearched">
+                                <td><input size="7" type="text" value="{{pr.prid}}"></td>
+                                <td><input size="12" type="text" value="{{pr.prName}}"></td>
+                                <td><input size="8" type="text" value="{{pr.meterPr}}"></td>
+                                <td><input size="8" type="text" value="{{pr.tarikh | date:'yyyy/MM/dd'}}"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

@@ -15,6 +15,7 @@ export class ProductionComponent implements OnInit {
     production: Production = {id: null, prid: null, prName: null, meterPr: null, tarikh: null};
     editProductione: Production = {id: null, prid: null, prName: null, meterPr: null, tarikh: null};
     productions = [];
+    prSearched = [];
 
     config = {
         theme: 'dp-material',
@@ -108,4 +109,18 @@ export class ProductionComponent implements OnInit {
     }
 
 
+    searchResult(event) {
+        this.textileService.SearchProduction(event.target.value).subscribe(
+            value => {
+                this.prSearched = value;
+
+            },
+            error1 => {
+                console.log('fail...');
+            },
+            () => {
+                console.log('complete');
+            }
+        );
+    }
 }

@@ -1,6 +1,8 @@
+
+
 <div>
     <div id="divtitle">
-        <h1>مدیریت مشتری</h1>
+        <h1>  مدیریت مشتری<span style="cursor: pointer;font-size:small" data-toggle="modal" data-target="#searchCuModal">-جستجوی مشتری-</span></h1>
     </div>
     <div dir="rtl" class="row">
         <div class="col-xl-3 col-lg-3 col-md-2">
@@ -219,7 +221,7 @@
                                 data-dismiss="modal" style="font-family: '2  Mitra'">
                             حذف مشتری
                         </button>
-                        <button type="button" class="btn btn-dark" style="font-family: '2  Mitra'">چاپ این فرم</button>
+                        <button type="button" class="btn btn-dark" style="font-family: '2  Mitra'" (click)="printInformation(editcustomer.id)">چاپ این فرم</button>
                         <button type="button" class="btn btn-dark" data-dismiss="modal"
                                 style="font-family: '2  Mitra';margin-right:15px">
                             بستن پنجره
@@ -227,6 +229,41 @@
                     </div>
 
 
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- The Search  Modal -->
+    <div class="modal" id="searchCuModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header" dir="rtl">
+                    <h5 class="modal-title" style="font-family: '2  Mitra'">جستجوی مشتری</h5>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <input type="text" placeholder="مشتری را جستجو کنید" class="form-control"
+                           (keydown.enter)="searchCustomer($event)">
+                    <div style="margin-top: 15px;margin-right: 40px;font-family: '2  Mitra';text-align: center">
+                        <table>
+                            <tr>
+                                <td>کدمشتری</td>
+                                <td>نام</td>
+                                <td>نام خانوادگی</td>
+                                <td>مانده حساب</td>
+                                <td>تاریخ</td>
+                            </tr>
+                            <tr *ngFor="let cu of searchedCu">
+                                <td><input size="7" type="text" value="{{cu.cuid}}"></td>
+                                <td><input size="12" type="text" value="{{cu.firstName}}"></td>
+                                <td><input size="8" type="text" value="{{cu.lastName}}"></td>
+                                <td><input size="8" type="text" value="{{cu.mande}}"></td>
+                                <td><input size="8" type="text" value="{{cu.registerDate | date:'yyyy/MM/dd'}}"></td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

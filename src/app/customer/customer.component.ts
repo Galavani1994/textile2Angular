@@ -49,6 +49,7 @@ export class CustomerComponent implements OnInit {
         zamen: [{id: null, zamenName: null, zamenFamily: null}]
     }];
 
+    searchedCu = [];
 
     ngOnInit() {
         this.textileService.getAllCustomer().subscribe(
@@ -140,5 +141,27 @@ export class CustomerComponent implements OnInit {
             }
         );
 
+    }
+
+    searchCustomer(event) {
+        this.textileService.SearchCustomer(event.target.value).subscribe(
+            value => {
+                this.searchedCu = value;
+            }
+        );
+    }
+
+    printInformation(id) {
+        this.textileService.printInfoCustomer(id).subscribe(
+            value => {
+                console.log('ok');
+            },
+            error1 => {
+                console.log('fail');
+            },
+            () => {
+                console.log('complete');
+            }
+        );
     }
 }

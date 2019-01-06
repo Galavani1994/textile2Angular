@@ -43,4 +43,12 @@ h1 {
     -ms-overflow-style: -ms-autohiding-scrollbar;
     text-align: right;
 }
+#searchingPr{
+    text-align: center;
+    font-family: "2  Mitra";
+
+}
+#searchingPr input{
+    text-align: center;
+}
 

@@ -72,7 +72,7 @@
                                    name="pay" id="pay"></td>
                         <td>شماره فاکتور</td>
                         <td><input size="5" type="text" [(ngModel)]="operationPr.factore" id="factore"
-                                   name="factore" (keyup.enter)="savecpInfo()"></td>
+                                   name="factore" (keyup.enter)="savecpInfo()" required></td>
                         <td>مانده</td>
                         <td><input size="12" type="text" [ngModel]="operationPr.remain | number"
                                    (ngModelChange)="operationPr.remain"
@@ -84,6 +84,8 @@
                                    (ngModelChange)="operationPr.kaladate"
                                    name="kaladate" style="text-align: center"></td>
                         <td><input type="button" value="ذخیره" (click)="savecpInfo()"></td>
+                        <td><input type="button" class=" btn-sm btn-primary" data-toggle="modal" data-target="#searchCuModal" value="جستجوی مشتری"></td>
+                        <td><input type="button" class=" btn-sm btn-primary" data-toggle="modal" data-target="#searchPrModal" value="جستجوی کالا"></td>
                     </tr>
                 </table>
             </div>
@@ -123,6 +125,74 @@
                         </td>
                     </tr>
                 </table>
+            </div>
+        </div>
+    </div>
+    <!-- The Modal -->
+    <div class="modal" id="searchCuModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header" dir="rtl">
+                    <h5 class="modal-title" style="font-family: '2  Mitra'">جستجوی مشتری</h5>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <input type="text" placeholder="مشتری را جستجو کنید" class="form-control"
+                           (keydown.enter)="searchCu($event)">
+                    <div style="margin-top: 15px;margin-right: 40px;font-family: '2  Mitra';text-align: center">
+                        <table>
+                            <tr>
+                                <td>کدمشتری</td>
+                                <td>نام</td>
+                                <td>نام خانوادگی</td>
+                                <td>مانده حساب</td>
+                                <td>تاریخ</td>
+                            </tr>
+                            <tr *ngFor="let cu of cusearch">
+                                <td><input size="7" type="text" value="{{cu.cuid}}"></td>
+                                <td><input size="12" type="text" value="{{cu.firstName}}"></td>
+                                <td><input size="8" type="text" value="{{cu.lastName}}"></td>
+                                <td><input size="8" type="text" value="{{cu.mande}}"></td>
+                                <td><input size="8" type="text" value="{{cu.registerDate | date:'yyyy/MM/dd'}}"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- The Modal -->
+    <div class="modal" id="searchPrModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header" dir="rtl">
+                    <h5 class="modal-title" style="font-family: '2  Mitra'">جستجوی کالا</h5>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <input type="text" placeholder="کالا را جستجو کنید" class="form-control"
+                           (keydown.enter)="searchPr($event)">
+                    <div style="margin-top: 15px;margin-right: 70px;font-family: '2  Mitra';text-align: center">
+                        <table>
+                            <tr>
+                                <td>کدکالا</td>
+                                <td>نام کالا</td>
+                                <td>متراژ</td>
+                                <td>تاریخ</td>
+                            </tr>
+                            <tr *ngFor="let pr of prsearch">
+                                <td><input size="7" type="text" value="{{pr.prid}}"></td>
+                                <td><input size="12" type="text" value="{{pr.prName}}"></td>
+                                <td><input size="8" type="text" value="{{pr.meterPr}}"></td>
+                                <td><input size="8" type="text" value="{{pr.tarikh | date:'yyyy/MM/dd'}}"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

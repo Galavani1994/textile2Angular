@@ -1,4 +1,4 @@
-import {BrowserModule} from '@angular/platform-browser';
+import {BrowserModule, Title} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
@@ -15,7 +15,7 @@ import {DpDatePickerModule} from 'ng2-jalali-date-picker';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatDatepickerModule, MatFormFieldModule, MatInputModule, MatNativeDateModule} from '@angular/material';
 import {ManagementsaleService} from './managementsale.service';
-import { FocusDirective } from './focus.directive';
+import {FocusDirective} from './focus.directive';
 
 
 const routes: Routes = [
@@ -49,7 +49,7 @@ const routes: Routes = [
         MatFormFieldModule,
         MatNativeDateModule
     ],
-    providers: [TextileService, ManagementsaleService],
+    providers: [TextileService, ManagementsaleService, Title],
     bootstrap: [AppComponent]
 })
 export class AppModule {

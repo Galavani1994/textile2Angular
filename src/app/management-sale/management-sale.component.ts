@@ -2,6 +2,7 @@ import {Component, DoCheck, OnInit, Renderer2} from '@angular/core';
 import {ManagementsaleService} from '../managementsale.service';
 import * as momentJalaali from 'moment-jalaali';
 import {Cp} from '../model/cp';
+import {TextileService} from '../textile.service';
 
 @Component({
     selector: 'app-management-sale',
@@ -37,7 +38,11 @@ export class ManagementSaleComponent implements OnInit, DoCheck {
             discount: null, pay: null, factore: null, remain: null, kaladate: null
         }];
 
-    constructor(private managementsaleService: ManagementsaleService, private render: Renderer2) {
+    prsearch = [];
+    cusearch = [];
+
+    constructor(private managementsaleService: ManagementsaleService,
+                private render: Renderer2, private textileService: TextileService) {
     }
 
     ngOnInit() {
@@ -172,5 +177,22 @@ export class ManagementSaleComponent implements OnInit, DoCheck {
         } else if (event.target.id === 'pay') {
             this.render.selectRootElement('#factore').focus();
         }
+    }
+
+    searchPr(event) {
+        this.textileService.SearchProduction(event.target.value).subscribe(
+            value => {
+                this.prsearch = value;
+            }
+        );
+
+    }
+
+    searchCu(event) {
+        this.textileService.SearchCustomer(event.target.value).subscribe(
+            value => {
+                this.cusearch = value;
+            }
+        );
     }
 }

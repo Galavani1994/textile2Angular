@@ -1,7 +1,6 @@
 import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
 
 
-
 @Component({
     selector: 'app-report',
     templateUrl: './report.component.html',
@@ -10,18 +9,30 @@ import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core
 export class ReportComponent implements OnInit {
 
 
-    constructor(private renderer: Renderer2) {
+    timeLeft = 60;
+    interval;
+
+    startTimer() {
+        this.interval = setInterval(() => {
+            if (this.timeLeft > 0) {
+                this.timeLeft--;
+            } else {
+                this.timeLeft = 60;
+            }
+        }, 1000);
     }
 
-    setFocus() {
-        this.renderer.selectRootElement('#firstname').focus();
+    pauseTimer() {
+        clearInterval(this.interval);
+    }
+
+    constructor() {
     }
 
 
     ngOnInit() {
-        this.renderer.selectRootElement('#inp').focus();
-    }
 
+    }
 
 
 }

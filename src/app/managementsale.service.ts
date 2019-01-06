@@ -8,8 +8,12 @@ import {TextileService} from './textile.service';
 })
 export class ManagementsaleService {
 
-    static readonly POST_CP_URL = 'http://localhost:8091/cp/saveCP';
-    static readonly POST_EDITCP_URL = 'http://localhost:8091/cp/editcp';
+    private static readonly MAIN_URL = 'http://localhost:8091/';
+    private static readonly POST_CP_URL = ManagementsaleService.MAIN_URL + 'cp/saveCP';
+    private static readonly POST_EDITCP_URL = ManagementsaleService.MAIN_URL + 'cp/editcp';
+    private static readonly GET_CUSTOMER_URL = ManagementsaleService.MAIN_URL + 'cu/findOneCustomer/';
+    private static readonly GET_PRODUCTION_URL = ManagementsaleService.MAIN_URL + 'pr/findOneProduction/';
+    private static readonly GET_DELETE_CP_URL = ManagementsaleService.MAIN_URL + 'cp/deletCP/';
 
     private headers = new HttpHeaders({'Content-Type': 'application/json'});
 
@@ -18,11 +22,11 @@ export class ManagementsaleService {
     }
 
     getCustomer(id): Observable<any> {
-        return this.http.get('http://localhost:8091/cu/findOneCustomer/' + id);
+        return this.http.get(ManagementsaleService.GET_CUSTOMER_URL + id);
     }
 
     getProduction(id): Observable<any> {
-        return this.http.get('http://localhost:8091/pr/findOneProduction/' + id);
+        return this.http.get(ManagementsaleService.GET_PRODUCTION_URL + id);
     }
 
     saveCp(cp) {
@@ -30,7 +34,7 @@ export class ManagementsaleService {
     }
 
     deleteCP(id) {
-        return this.http.get('http://localhost:8091/cp/deletCP/' + id);
+        return this.http.get(ManagementsaleService.GET_DELETE_CP_URL + id);
     }
 
     editCp(cp) {

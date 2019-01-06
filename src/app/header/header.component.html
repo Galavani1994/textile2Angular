@@ -3,16 +3,16 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/">صفحه فروش</a>
+          <a class="nav-link" (click)="setTitle('صفحه فروش')" routerLink="/">صفحه فروش</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="customer">مدیریت مشتری</a>
+          <a class="nav-link" (click)="setTitle('مدیریت مشتری')" routerLink="customer">مدیریت مشتری</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="production">مدیریت کالا</a>
+          <a class="nav-link" (click)="setTitle('مدیریت کالا')" routerLink="production">مدیریت کالا</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="report">گزارشگیری</a>
+          <a class="nav-link"  (click)="setTitle('گزارشگیری')" routerLink="report">گزارشگیری</a>
         </li>
       </ul>
     </div>
