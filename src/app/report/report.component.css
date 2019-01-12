@@ -1,0 +1,19 @@
+#menu{
+    height: auto;
+}
+#menu input{
+    font-family: "2  Mitra";
+    text-align: center;
+    width: 100%;
+    padding: 5px 25px 5px 25px;
+    Border-radius: 4px;
+}
+#contentMenu{
+    background-color: #bee5eb;
+    height: auto;
+}
+h2{
+    font-family: "B Titr";
+    text-align: center;
+
+}

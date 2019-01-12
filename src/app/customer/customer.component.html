@@ -64,7 +64,7 @@
                         <td><input size="10" type="text" value="{{customer.lastName}}"></td>
                         <td><input size="10" type="text" value="{{customer.mobileNum}}"></td>
                         <td><input type="text" value="{{customer.descreption}}"></td>
-                        <td><input size="8" type="text" value="{{customer.registerDate | date:'y/M/d'}}"></td>
+                        <td><input size="8" type="text" value="{{customer.lastCome | date:'y/M/d'}}"></td>
                         <td><input size="8" type="text" value="{{customer.mande |number}}"></td>
                         <td>
                             <button class="btn btn-info btn-sm rounded-bottom" (click)="showCustomer(customer)"
@@ -147,7 +147,7 @@
                                 </tr>
                                 <tr>
                                     <td>تاریخ آخرین مراجعه:</td>
-                                    <td><input [ngModel]="editcustomer.lastCome"
+                                    <td><input [ngModel]="editcustomer.lastCome | date:'y/M/d'"
                                                (ngModelChange)="editcustomer.lastCome=$event"></td>
                                 </tr>
                                 <tr>
@@ -253,14 +253,14 @@
                                 <td>نام</td>
                                 <td>نام خانوادگی</td>
                                 <td>مانده حساب</td>
-                                <td>تاریخ</td>
+                                <td>آخرین مراجعه</td>
                             </tr>
                             <tr *ngFor="let cu of searchedCu">
                                 <td><input size="7" type="text" value="{{cu.cuid}}"></td>
                                 <td><input size="12" type="text" value="{{cu.firstName}}"></td>
                                 <td><input size="8" type="text" value="{{cu.lastName}}"></td>
                                 <td><input size="8" type="text" value="{{cu.mande}}"></td>
-                                <td><input size="8" type="text" value="{{cu.registerDate | date:'yyyy/MM/dd'}}"></td>
+                                <td><input size="8" type="text" value="{{cu.lastCome | date:'yyyy/MM/dd'}}"></td>
                             </tr>
                         </table>
                     </div>

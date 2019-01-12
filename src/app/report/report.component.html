@@ -1,3 +1,58 @@
+<div>
+    <h2> گزارش گیری</h2>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div id="menu" class="col-lg-1">
+            <table>
+                <tr>
+                    <td>
+                        <input type="button" value=" فروش" class="btn btn-primary" data-toggle="collapse"
+                               data-target="#reportSale">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" value="کالا" class="btn btn-primary" data-toggle="collapse"
+                               data-target="#reportCu">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" value="مشتری" class="btn btn-primary" data-toggle="collapse"
+                               data-target="#reportPr">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="contentMenu" class="col-lg-10" style="text-align: right">
+            <div id="reportSale" class="collapse">
+                <div>
+                    <input type="text" placeholder="ازتاریخ">
+                    <input type="text" placeholder="تا تاریخ" style="margin-right: 15px;margin-top: 10px">
+                </div>
+                <div>
+                    <button></button>
+                </div>
+            </div>
+            <div id="reportCu" class="collapse">
+                <p>این متن به جهت تست1 نوشته شده است</p>
+            </div>
+            <div id="reportPr" class="collapse">
+                <p>این متن به جهت تست2 نوشته شده است</p>
+                <div>
+                    <select [(ngModel)]="selected" (change)="selectOption()">
+                        <option [value]="item.id" *ngFor="let item of provinces">{{item.name}}</option>
+                    </select>
+                    <select>
+                        <option *ngFor="let city of citi(citySelection)">{{city.name}}</option>
+                    </select>
 
-<button (click)='startTimer()'>Start Timer</button>
-<button (click)='pauseTimer()'>Pause</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-1">
+
+        </div>
+    </div>
+</div>

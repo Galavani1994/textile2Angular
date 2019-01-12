@@ -80,8 +80,8 @@
                     </tr>
                     <tr>
                         <td>تاریخ</td>
-                        <td><input size="10" type="text" [ngModel]="operationPr.kaladate | date:'yyyy/MM/dd'"
-                                   (ngModelChange)="operationPr.kaladate"
+                        <td><input size="10" type="text" [(ngModel)]="operationPr.kaladate"
+
                                    name="kaladate" style="text-align: center"></td>
                         <td><input type="button" value="ذخیره" (click)="savecpInfo()"></td>
                         <td><input type="button" class=" btn-sm btn-primary" data-toggle="modal" data-target="#searchCuModal" value="جستجوی مشتری"></td>

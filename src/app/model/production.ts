@@ -5,5 +5,6 @@ export class Production {
     prName;
     meterPr;
     tarikh;
+    descreption;
 
 }

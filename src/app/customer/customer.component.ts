@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {TextileService} from '../textile.service';
-import {Customer} from '../model/customer';
-import {Zamen} from '../model/zamen';
-import {textBinding} from '@angular/core/src/render3';
+import {DatePickerComponent} from 'ng2-jalali-date-picker';
 
 
 @Component({
@@ -61,7 +59,7 @@ export class CustomerComponent implements OnInit {
     }
 
     saveCustomer() {
-        console.log(this.customer);
+
         const date = this.customer.registerDate;
         const date1 = new Date(date);
         this.customer.registerDate = date1;
@@ -110,10 +108,14 @@ export class CustomerComponent implements OnInit {
     }
 
     editCustomer() {
-        console.log(this.editcustomer);
+
+        const date1 = new Date(this.editcustomer.registerDate);
+        this.editcustomer.registerDate = date1;
+        const date2 = new Date(this.editcustomer.lastCome);
+        this.editcustomer.lastCome = date2;
         this.textileService.editCustomer(this.editcustomer).subscribe(
             value => {
-                console.log('[POST] Update Customer successfully', value);
+                console.log('[POST] Update Customer successfully');
             },
             Error => {
                 console.log('FAIL to create Customer!');
@@ -151,9 +153,15 @@ export class CustomerComponent implements OnInit {
         );
     }
 
+    downloadFile(data: Response) {
+        const blob = new Blob([data], {type: 'application/pdf'});
+        const url = window.URL.createObjectURL(blob);
+        window.open(url);
+    }
+
     printInformation(id) {
         this.textileService.printInfoCustomer(id).subscribe(
-            value => {
+            data => {
                 console.log('ok');
             },
             error1 => {

@@ -1,8 +1,12 @@
 import {Component, DoCheck, OnInit, Renderer2} from '@angular/core';
 import {ManagementsaleService} from '../managementsale.service';
 import * as momentJalaali from 'moment-jalaali';
-import {Cp} from '../model/cp';
+
 import {TextileService} from '../textile.service';
+import {DatePickerComponent} from 'ng2-jalali-date-picker';
+import * as moment from 'jalali-moment';
+import _date = moment.unitOfTime._date;
+import {DatePipe} from '@angular/common';
 
 @Component({
     selector: 'app-management-sale',
@@ -11,7 +15,7 @@ import {TextileService} from '../textile.service';
 })
 export class ManagementSaleComponent implements OnInit, DoCheck {
 
-    operationPr: Cp = {
+    operationPr = {
         id: null,
         cuid: null,
         prid: null,
@@ -40,9 +44,14 @@ export class ManagementSaleComponent implements OnInit, DoCheck {
 
     prsearch = [];
     cusearch = [];
+    config = {
+
+        format: 'YYYY/MM/DD'
+    };
 
     constructor(private managementsaleService: ManagementsaleService,
-                private render: Renderer2, private textileService: TextileService) {
+                private render: Renderer2,
+                private textileService: TextileService) {
     }
 
     ngOnInit() {
@@ -85,6 +94,7 @@ export class ManagementSaleComponent implements OnInit, DoCheck {
 
     savecpInfo() {
 
+        console.log(this.operationPr);
         this.operationPr.cuid = this.cpAndCustomer[0].cuid;
         this.operationPr.prid = this.loadedProduction.prid;
         this.operationPr.prName = this.loadedProduction.prName;
@@ -122,7 +132,8 @@ export class ManagementSaleComponent implements OnInit, DoCheck {
         this.operationPr.pay = null;
         this.operationPr.factore = null;
         this.operationPr.remain = null;
-        this.operationPr.kaladate = null;
+        momentJalaali.loadPersian();
+        this.operationPr.kaladate = momentJalaali().format('jYYYY/jMM/jDD');
         this.render.selectRootElement('#prid').focus();
     }
 
@@ -146,8 +157,12 @@ export class ManagementSaleComponent implements OnInit, DoCheck {
     }
 
     editCp(cp) {
+        console.log(cp);
         this.operationPr = cp;
-        console.log(this.operationPr);
+
+        const date = new Date(this.operationPr.kaladate);
+        this.operationPr.kaladate = date;
+
         this.managementsaleService.editCp(this.operationPr).subscribe(
             () => {
                 console.log('[POST]_create CPTable');
@@ -163,6 +178,8 @@ export class ManagementSaleComponent implements OnInit, DoCheck {
                 );
             }
         );
+        // momentJalaali(date).format('jYYYY/jMM/jDD').toDate();
+        this.operationPr.kaladate = momentJalaali().format('jYYYY/jMM/jDD');
 
     }
 

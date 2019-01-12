@@ -12,8 +12,8 @@ import {DatePickerComponent} from 'ng2-jalali-date-picker';
 })
 export class ProductionComponent implements OnInit {
 
-    production: Production = {id: null, prid: null, prName: null, meterPr: null, tarikh: null};
-    editProductione: Production = {id: null, prid: null, prName: null, meterPr: null, tarikh: null};
+    production: Production = {id: null, prid: null, prName: null, meterPr: null, tarikh: null, descreption: null};
+    editProductione: Production = {id: null, prid: null, prName: null, meterPr: null, tarikh: null, descreption: null};
     productions = [];
     prSearched = [];
 
@@ -47,7 +47,7 @@ export class ProductionComponent implements OnInit {
         this.production.tarikh = date;
         this.textileService.saveProduction(this.production).subscribe(
             value => {
-                console.log('[POST] create Production successfully', value);
+                console.log('[POST] create Production successfully');
             }, error => {
                 console.log('FAIL to create Production!');
             },
@@ -77,16 +77,17 @@ export class ProductionComponent implements OnInit {
             });
     }
 
-    editProduction(id, prid, prname: string, meterpr, tarikh) {
+    editProduction(id, prid, prname, meterpr, tarikh, descreption) {
         this.editProductione.id = id;
         this.editProductione.prid = prid;
         this.editProductione.prName = prname;
         this.editProductione.meterPr = meterpr;
         this.editProductione.tarikh = tarikh;
+        this.editProductione.descreption = descreption;
 
         this.textileService.saveProduction(this.editProductione).subscribe(
             value => {
-                console.log('[POST] create Customer successfully', value);
+                console.log('[POST] create Customer successfully');
             }, error => {
                 console.log('FAIL to create Production!');
             },
@@ -106,6 +107,7 @@ export class ProductionComponent implements OnInit {
         this.production.prName = null;
         this.production.meterPr = null;
         this.production.tarikh = null;
+        this.production.descreption = null;
     }
 
 
