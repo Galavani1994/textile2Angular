@@ -178,7 +178,7 @@ export class ManagementSaleComponent implements OnInit, DoCheck {
                 );
             }
         );
-        // momentJalaali(date).format('jYYYY/jMM/jDD').toDate();
+        // momentJalaali(date).format('jYYYY/jMM/jDD').toDatee();
         this.operationPr.kaladate = momentJalaali().format('jYYYY/jMM/jDD');
 
     }

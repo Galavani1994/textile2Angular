@@ -15,5 +15,18 @@
 h2{
     font-family: "B Titr";
     text-align: center;
-
+}
+#reportOfcp input{
+    text-align: center;
+}
+.table-wrapper-scroll-y
+{
+    display: block;
+    max-height: 350px;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    text-align: right;
+}
+#cpinfobyPr input{
+    text-align: center;
 }

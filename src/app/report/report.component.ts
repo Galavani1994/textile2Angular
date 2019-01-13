@@ -1,4 +1,6 @@
 import {Component, DoCheck, ElementRef, OnChanges, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {ManagementsaleService} from '../managementsale.service';
+import {Cp} from '../model/cp';
 
 
 @Component({
@@ -6,9 +8,21 @@ import {Component, DoCheck, ElementRef, OnChanges, OnInit, Renderer2, ViewChild}
     templateUrl: './report.component.html',
     styleUrls: ['./report.component.css']
 })
-export class ReportComponent implements OnInit, DoCheck {
+export class ReportComponent implements OnInit {
 
     allow = false;
+    totalSale = null;
+    totalDiscount = null;
+    dates = {fromDate: null, toDatee: null};
+    prDates = {fromDate: null, toDatee: null, prInfo: null};
+    cpData: Cp[];
+    cpDatabyPr: Cp[];
+
+
+    config = {
+
+        format: 'YYYY/MM/DD'
+    };
 
     provinces: any[] = [
         {id: 0, name: 'استان'},
@@ -34,7 +48,7 @@ export class ReportComponent implements OnInit, DoCheck {
     }
 
 
-    constructor() {
+    constructor(private managementService: ManagementsaleService) {
     }
 
 
@@ -50,11 +64,39 @@ export class ReportComponent implements OnInit, DoCheck {
 
     }
 
-    selectionOptionCity() {
 
+    searchbetween() {
+        console.log(this.dates.fromDate);
+        console.log(this.dates);
+
+        this.managementService.reporCp(this.dates).subscribe(
+            (dataa) => {
+                this.cpData = dataa[0];
+                this.totalSale = dataa[1];
+                this.totalDiscount = dataa[2];
+            },
+            error1 => {
+                console.log('fail the activation...');
+            },
+            () => {
+                console.log('complete.......');
+            }
+        );
     }
 
-    ngDoCheck(): void {
-        this.citySelection = this.selected;
+    reportByPr(value) {
+        this.prDates.prInfo = value;
+        this.managementService.reporCpbyPr(this.prDates).subscribe(
+            (value1) => {
+                this.cpDatabyPr = value1;
+            },
+            error1 => {
+                console.log('Fail...');
+            },
+            () => {
+                console.log('complete...');
+            }
+        );
+
     }
 }
