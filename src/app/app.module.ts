@@ -16,13 +16,25 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatDatepickerModule, MatFormFieldModule, MatInputModule, MatNativeDateModule} from '@angular/material';
 import {ManagementsaleService} from './managementsale.service';
 import {FocusDirective} from './focus.directive';
+import {AdminComponent} from './admin/admin.component';
+import {SignUpComponent} from './admin/sign-up/sign-up.component';
+import {SignInComponent} from './admin/sign-in/sign-in.component';
+import {DashboardComponent} from './admin/dashboard/dashboard.component';
+
 
 
 const routes: Routes = [
     {path: '', component: ManagementSaleComponent},
     {path: 'production', component: ProductionComponent},
     {path: 'customer', component: CustomerComponent},
-    {path: 'report', component: ReportComponent}
+    {path: 'report', component: ReportComponent},
+    {
+        path: 'admin', component: AdminComponent, children: [
+            {path: 'signIn', component: SignInComponent},
+            {path: 'dashboard', component: DashboardComponent}
+        ]
+    },
+    {path: 'signUp', component: SignUpComponent},
 ];
 
 
@@ -33,8 +45,11 @@ const routes: Routes = [
         ProductionComponent,
         CustomerComponent,
         ManagementSaleComponent,
-        ReportComponent
-
+        ReportComponent,
+        AdminComponent,
+        SignUpComponent,
+        SignInComponent,
+        DashboardComponent
     ],
     imports: [
         BrowserModule,

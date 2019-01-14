@@ -140,7 +140,7 @@
                 <!-- Modal body -->
                 <div class="modal-body">
                     <input type="text" placeholder="مشتری را جستجو کنید" class="form-control"
-                           (keydown.enter)="searchCu($event)">
+                           (keyup)="searchCu($event)">
                     <div style="margin-top: 15px;margin-right: 40px;font-family: '2  Mitra';text-align: center">
                         <table>
                             <tr>
@@ -175,7 +175,7 @@
                 <!-- Modal body -->
                 <div class="modal-body">
                     <input type="text" placeholder="کالا را جستجو کنید" class="form-control"
-                           (keydown.enter)="searchPr($event)">
+                           (keyup)="searchPr($event)">
                     <div style="margin-top: 15px;margin-right: 70px;font-family: '2  Mitra';text-align: center">
                         <table>
                             <tr>

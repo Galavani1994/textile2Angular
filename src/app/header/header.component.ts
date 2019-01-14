@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
     }
 
     public setTitle(newTitle: string) {
-        this.titleService.setTitle(newTitle);
+       // this.titleService.setTitle(newTitle);
     }
 
     ngOnInit() {

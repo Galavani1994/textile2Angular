@@ -79,7 +79,7 @@
                 <!-- Modal body -->
                 <div class="modal-body">
                     <input type="text" placeholder="کالای مورد نظر خود را جستجو کنید" class="form-control"
-                           (keydown.enter)="searchResult($event)">
+                           (keyup)="searchResult($event)">
                     <div style="margin-top: 15px;margin-right: 70px">
                         <table id="searchingPr">
                             <tr>

@@ -1,0 +1,15 @@
+#signinDiv{
+    background-image: url(/assets/bootstrap/img/sang.jpg);
+    background-repeat: no-repeat;
+    width: 90%;
+    background-size: cover;
+}
+#regis tr{
+    color:#721c24;
+    font-weight: bold;
+    font-size: large;
+    text-align: center;
+}
+#regis input{
+    text-align: center;
+}

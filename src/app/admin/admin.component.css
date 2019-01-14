@@ -1,0 +1,13 @@
+#dashboard {
+    width: 200px;
+    background-color: #4e555b;
+    text-align: right;
+    font-family: "2  Mitra";
+    font-size: large;
+    font-weight: bold;
+    height: fit-content;
+}
+#dashboard a
+{
+    color: #ffffff;
+}
