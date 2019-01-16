@@ -24,9 +24,12 @@
             ],
             "styles": [
               "src/assets/bootstrap/css/bootstrap.min.css",
+              "src/assets/bootstrap/new/css/bootstrap.min.css",
               "src/assets/bootstrap/new/css/bootstrap-grid.css",
               "src/assets/bootstrap/new/css/bootstrap-reboot.css",
               "src/assets/fontawesome-free-5.6.3-web/css/fontawesome.min.css",
+              "src/assets/font/WebFonts/fonts/woff2/IRANSansWeb.woff2",
+              "src/assets/font/WebFonts/fonts/woff2/IRANSansWeb_Medium.woff2",
               "src/styles.css"
             ],
             "scripts": []

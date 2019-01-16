@@ -1,16 +1,22 @@
-<div id="signinDiv" >
-    <div  style="text-align: right;padding: 30px">
-        <form style="font-family: '2  Mitra'">
+<div id="signinDiv">
+    <div style="text-align: right;padding: 30px">
+        <div style="font-family: '2  Mitra'">
             <table id="regis">
-                <tr >نام کاربری</tr>
-                <tr><input type="text" class="form-control" placeholder="نام کاربری را وارد کنید"></tr>
+                <tr>نام کاربری</tr>
+                <tr><input type="text"
+                           name="username" [(ngModel)]="userInfo.username"
+                           class="form-control" placeholder="نام کاربری را وارد کنید"></tr>
                 <tr>رمزعبور</tr>
-                <tr><input type="text" class="form-control" placeholder="رمز عبور را وارد کنید"></tr>
+                <tr><input type="text"
+                           name="password" [(ngModel)]="userInfo.password"
+                           class="form-control" placeholder="رمز عبور را وارد کنید"></tr>
                 <tr>ایمیل</tr>
-                <tr><input type="text" class="form-control" placeholder="ایمیل خود را وارد کنید"></tr>
+                <tr><input type="text"
+                           name="email" [(ngModel)]="userInfo.email"
+                           class="form-control" placeholder="ایمیل خود را وارد کنید"></tr>
             </table>
             <hr>
-            <input type="button" class="btn btn-dark btn-sm" value="ثبت نام">
-        </form>
+            <input type="button" class="btn btn-dark btn-sm" value="ثبت نام" (click)="saveUser()">
+        </div>
     </div>
 </div>

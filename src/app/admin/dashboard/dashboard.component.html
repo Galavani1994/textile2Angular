@@ -1,3 +1,71 @@
-<p>
-  dashboard works!
-</p>
+<div id="allUser">
+    <table>
+        <tr>
+            <td>نام کاربری</td>
+            <td>رمز عبور</td>
+            <td>ایمیل</td>
+            <td>نقش کاربر</td>
+        </tr>
+        <tr *ngFor="let user of allUser">
+            <td><input type="text" value="{{user.username}}"></td>
+            <td><input type="text" value="{{user.passwordString}}"></td>
+            <td><input type="text" value="{{user.email}}"></td>
+            <td><input type="text" value="{{user.roles[0].role}}"></td>
+            <td><input type="button" class="btn btn-sm" value="حذف" (click)="deleteUser(user)"></td>
+            <td><input type="button" class="btn btn-sm" value="افزودن نقش کاربری"
+            data-target="#userInfo" data-toggle="modal" (click)="userInformation(user)"></td>
+        </tr>
+    </table>
+</div>
+
+<!-- The Modal -->
+<div class="modal" id="userInfo">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header" dir="rtl">
+                <h5 class="modal-title" style="font-family: '2  Mitra'">مشخصات کاربر</h5>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="row">
+                    <div style="text-align: center;font-family: '2  Mitra';padding: 10px;"
+                    class="col-lg-5">
+                        <table>
+                            <tr>نام کاربری</tr>
+                            <tr><input type="text" value="{{user.username}}"></tr>
+                            <tr>رمزعبور</tr>
+                            <tr><input type="text" value="{{user.passwordString}}"></tr>
+                            <tr>ایمیل</tr>
+                            <tr><input type="text" value="{{user.email}}"></tr>
+                            <div style="background-color: #b8daff;margin-top: 5px;padding: 5px">
+                                <tr>نقش کاربری</tr>
+                                <tr *ngFor="let rol of user.roles">
+                                    <td><input type="text" size="5" value="{{rol.role}}"></td>
+                                </tr>
+                            </div>
+                        </table>
+                    </div>
+                    <div class="col-lg-2" >
+
+                    </div>
+                    <div class="col-lg-5" style="text-align: right;font-family: '2  Mitra'">
+                        <table>
+                            <tr>نقش</tr>
+                            <tr><input type="text" size="6" [(ngModel)]="role.role"></tr>
+                            <tr><input type="button" value="ذخیره" class="btn btn-sm" (click)="rolesave(user)"></tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!--Modal footer-->
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+

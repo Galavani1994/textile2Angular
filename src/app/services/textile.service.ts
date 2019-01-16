@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Production} from './model/production';
-import {Customer} from './model/customer';
-import {Zamen} from './model/zamen';
+import {Production} from '../model/production';
+import {Customer} from '../model/customer';
+import {Zamen} from '../model/zamen';
 
 
 @Injectable({

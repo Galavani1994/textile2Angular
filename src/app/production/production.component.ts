@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Production} from '../model/production';
-import {TextileService} from '../textile.service';
+import {TextileService} from '../services/textile.service';
 import * as momentJalaali from 'moment-jalaali';
 import {DateAdapter} from '@angular/material';
 import {DatePickerComponent} from 'ng2-jalali-date-picker';

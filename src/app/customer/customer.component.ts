@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {TextileService} from '../textile.service';
+import {TextileService} from '../services/textile.service';
 import {DatePickerComponent} from 'ng2-jalali-date-picker';
 
 

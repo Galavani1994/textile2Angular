@@ -1,15 +1,15 @@
 <div class="row">
-    <div id="dashboard" class="col-lg-2">
+    <div id="dashboard" class="col-lg-2 col-xl-2 col-md-3 col-sm-4 col-xs-6">
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link" routerLink="dashboard">داشبورد</a>
+                <a class="nav-link" routerLink="dashboard" (click)="setnew('داشبورد')">داشبورد</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="signIn">ثبت کابر</a>
+                <a class="nav-link" routerLink="signIn" (click)="setnew('ثبت کاربر')">ثبت کابر</a>
             </li>
         </ul>
     </div>
-    <div id="contentDashboard" class="col-lg-10">
+    <div id="contentDashboard" class="col-lg-10 col-xl-10 col-md-9 col-sm-8 col-xs-7">
         <router-outlet></router-outlet>
     </div>
 </div>

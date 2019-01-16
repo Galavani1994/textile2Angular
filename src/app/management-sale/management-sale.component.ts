@@ -1,8 +1,8 @@
 import {Component, DoCheck, OnInit, Renderer2} from '@angular/core';
-import {ManagementsaleService} from '../managementsale.service';
+import {ManagementsaleService} from '../services/managementsale.service';
 import * as momentJalaali from 'moment-jalaali';
 
-import {TextileService} from '../textile.service';
+import {TextileService} from '../services/textile.service';
 import {DatePickerComponent} from 'ng2-jalali-date-picker';
 import * as moment from 'jalali-moment';
 import _date = moment.unitOfTime._date;

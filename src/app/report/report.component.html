@@ -39,23 +39,25 @@
                     <button class="btn btn-primary btn-sm"
                             style="background-color: #b8661c;margin-top: 10px"
                             data-toggle="modal" data-target="#searchBetweenDates"
-                            (click)="searchbetween()">جستجو</button>
+                            (click)="searchbetween()">جستجو
+                    </button>
                 </div>
             </div>
             <div id="reportCu" class="collapse">
                 <div class="row" style="margin-top: 10px;font-family: '2  Mitra'">
-                   <div class="col-lg-3">
-                       <input style="font-family: '2  Mitra';text-align: center"
-                              type="text" placeholder="ازتاریخ"
-                              [dpDayPicker]="config" name="fromDate" [(ngModel)]="prDates.fromDate">
-                       <input type="text" placeholder="تا تاریخ"
-                              style="margin-bottom:10px;margin-top: 10px;font-family: '2  Mitra';text-align: center"
-                              [dpDayPicker]="config" name="toDate" [(ngModel)]="prDates.toDatee">
-                       <input type="text" (keyup.enter)="reportByPr($event.target.value)" #prid
-                              style="margin-bottom: 10px;text-align: center" placeholder="کدکالا را وارد کنید">
-                       <br>
-                       <button class="btn btn-sm" (click)="reportByPr(prid.value)" style="margin-bottom: 10px">جستجو</button>
-                   </div>
+                    <div class="col-lg-3">
+                        <input style="font-family: '2  Mitra';text-align: center"
+                               type="text" placeholder="ازتاریخ"
+                               [dpDayPicker]="config" name="fromDate" [(ngModel)]="prDates.fromDate">
+                        <input type="text" placeholder="تا تاریخ"
+                               style="margin-bottom:10px;margin-top: 10px;font-family: '2  Mitra';text-align: center"
+                               [dpDayPicker]="config" name="toDate" [(ngModel)]="prDates.toDatee">
+                        <input type="text" (keyup.enter)="reportByPr($event.target.value)" #prid
+                               style="margin-bottom: 10px;text-align: center" placeholder="کدکالا را وارد کنید">
+                        <br>
+                        <button class="btn btn-sm" (click)="reportByPr(prid.value)" style="margin-bottom: 10px">جستجو
+                        </button>
+                    </div>
                     <div class="col-lg-1"></div>
                     <div class="col-lg-8">
                         <table id="cpinfobyPr">
@@ -83,14 +85,21 @@
                 </div>
             </div>
             <div id="reportPr" class="collapse">
-                <p>این متن به جهت تست2 نوشته شده است</p>
-                <div>
-                    <select [(ngModel)]="selected" (change)="selectOption()">
-                        <option [value]="item.id" *ngFor="let item of provinces">{{item.name}}</option>
-                    </select>
-                    <select>
-                        <option *ngFor="let city of citi(citySelection)">{{city.name}}</option>
-                    </select>
+                <div class="table-wrapper-scroll-y">
+                    <table>
+                        <tr>
+                            <td>شماره</td>
+                            <td>استان</td>
+                            <td>شهرستان</td>
+                            <td>شهر</td>
+                        </tr>
+                        <tr *ngFor="let iran of iran96.IranDetails; index as i">
+                            <td><input type="text" value="{{i+1}}"></td>
+                            <td><input type="text" value="{{iran.province}}"></td>
+                            <td><input type="text" value="{{iran.state}}"></td>
+                            <td><input type="text" value="{{iran.city}}"></td>
+                        </tr>
+                    </table>
 
                 </div>
             </div>
@@ -102,16 +111,17 @@
 </div>
 <!-- The Modal -->
 <div class="modal" id="searchBetweenDates">
-    <div class="modal-dialog modal-lg" >
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
 
             <!-- Modal Header -->
             <div class="modal-header" dir="rtl">
-               <img src="assets/bootstrap/img/research.png" style="width: 50px;height: 50px">
+                <img src="assets/bootstrap/img/research.png" style="width: 50px;height: 50px">
             </div>
             <!-- Modal body -->
             <div class="modal-body">
-                <div style="margin-top: 15px;margin-right: 40px;font-family: '2  Mitra';text-align: center" class="table-wrapper-scroll-y">
+                <div style="margin-top: 15px;margin-right: 40px;font-family: '2  Mitra';text-align: center"
+                     class="table-wrapper-scroll-y">
                     <table id="reportOfcp">
                         <tr>
                             <td>کدمشتری</td>
@@ -143,9 +153,10 @@
                     <p style="margin-left: 30px">{{totalDiscount|number}}</p>
                 </div>
                 <div class="row" style="margin-top: 40px">
-                    <input  class="btn btn-info btn-sm" type="button" value="چاپ">
+                    <input class="btn btn-info btn-sm" type="button" value="چاپ">
                 </div>
             </div>
         </div>
     </div>
 </div>
+

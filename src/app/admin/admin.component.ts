@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Title} from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css']
+    selector: 'app-admin',
+    templateUrl: './admin.component.html',
+    styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+    constructor(private titleService: Title) {
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
+
+
+    setnew(newtitle: string) {
+        this.titleService.setTitle(newtitle);
+    }
 
 }
