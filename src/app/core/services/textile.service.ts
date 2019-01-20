@@ -69,8 +69,8 @@ export class TextileService {
         return this.http.get(TextileService.GET_SEARCH_CUSTOMER_URL + value);
     }
 
-    printInfoCustomer(id) {
-        return this.http.get(TextileService.GET_INFO_CUSTOMER_URL + id);
+    printInfoCustomer(id): Observable<Blob> {
+        return this.http.get(TextileService.GET_INFO_CUSTOMER_URL + id, {responseType: 'blob'});
     }
 
 

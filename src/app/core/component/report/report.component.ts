@@ -1,7 +1,8 @@
 import {Component, DoCheck, ElementRef, OnChanges, OnInit, Renderer2, ViewChild} from '@angular/core';
-import {ManagementsaleService} from '../services/managementsale.service';
-import {Cp} from '../model/cp';
-import {Iran9697} from '../model/iran96-97';
+import {ManagementsaleService} from '../../services/managementsale.service';
+import {Cp} from '../../model/cp';
+import {Iran9697} from '../../model/iran96-97';
+import {BrowserStorageService} from '../../browser-storage.service';
 
 
 @Component({
@@ -28,7 +29,7 @@ export class ReportComponent implements OnInit {
     iran96: Iran9697 = new Iran9697();
 
 
-    constructor(private managementService: ManagementsaleService) {
+    constructor(private managementService: ManagementsaleService, private browser: BrowserStorageService) {
     }
 
 

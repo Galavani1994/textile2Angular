@@ -108,8 +108,8 @@ arrows:
     - reply
     - reply-all
     - retweet
-    - share
-    - share-square
+    - shared
+    - shared-square
     - sign-in-alt
     - sign-out-alt
     - sort
@@ -599,7 +599,7 @@ editors:
     - reply
     - reply-all
     - screwdriver
-    - share
+    - shared
     - strikethrough
     - subscript
     - superscript
@@ -941,10 +941,10 @@ interfaces:
     - search
     - search-minus
     - search-plus
-    - share
-    - share-alt
-    - share-alt-square
-    - share-square
+    - shared
+    - shared-alt
+    - shared-alt-square
+    - shared-square
     - shield-alt
     - sign-in-alt
     - sign-out-alt

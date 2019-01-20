@@ -1894,7 +1894,7 @@ bullhorn:
       - broadcast
       - louder
       - megaphone
-      - share
+      - shared
   styles:
     - solid
   unicode: f0a1
@@ -12473,7 +12473,7 @@ retweet:
     terms:
       - refresh
       - reload
-      - share
+      - shared
       - swap
   styles:
     - solid

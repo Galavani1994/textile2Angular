@@ -1,6 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {TextileService} from '../services/textile.service';
+import {TextileService} from '../../services/textile.service';
 import {DatePickerComponent} from 'ng2-jalali-date-picker';
+import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
+import {until} from 'selenium-webdriver';
+import urlContains = until.urlContains;
+import {WindowRefService} from '../../services/WindowRef.service';
 
 
 @Component({
@@ -9,7 +13,10 @@ import {DatePickerComponent} from 'ng2-jalali-date-picker';
     styleUrls: ['./customer.component.css']
 })
 export class CustomerComponent implements OnInit {
-    constructor(private textileService: TextileService) {
+    isAllow = false;
+
+
+    constructor(private textileService: TextileService, private sanitizer: DomSanitizer) {
     }
 
     config = {
@@ -48,6 +55,8 @@ export class CustomerComponent implements OnInit {
     }];
 
     searchedCu = [];
+    private pdfsrc = null;
+
 
     ngOnInit() {
         this.textileService.getAllCustomer().subscribe(
@@ -160,9 +169,14 @@ export class CustomerComponent implements OnInit {
     }
 
     printInformation(id) {
-        this.textileService.printInfoCustomer(id).subscribe(
+
+        this.isAllow = true;
+        this.pdfsrc = 'http://localhost:8091/cu/customerInfoPrint/' + id;
+
+        /*this.textileService.printInfoCustomer(id).subscribe(
             data => {
-                console.log('ok');
+                console.log(data);
+                this.nativeWindow.open(data);
             },
             error1 => {
                 console.log('fail');
@@ -170,6 +184,6 @@ export class CustomerComponent implements OnInit {
             () => {
                 console.log('complete');
             }
-        );
+        );*/
     }
 }

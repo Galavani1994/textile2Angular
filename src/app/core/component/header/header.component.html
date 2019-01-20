@@ -22,6 +22,7 @@
 
         <a style="font-family: '2  Mitra';cursor: pointer;color: #0b2e13"
            class="nav-link" routerLink="admin" (click)="setTitle('مدیریت')">مدیریت</a>
+        <a [routerLink]="['/login']">Login</a>
     </nav>
     <div style="margin-top: 70px">
         <router-outlet></router-outlet>

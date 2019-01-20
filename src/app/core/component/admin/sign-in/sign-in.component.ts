@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {UserTable} from '../../model/userRole/userTable';
-import {UserService} from '../../services/user.service';
+import {UserTable} from '../../../model/userRole/userTable';
+import {UserService} from '../../../services/user.service';
 
 @Component({
     selector: 'app-sign-in',
