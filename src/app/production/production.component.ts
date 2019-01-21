@@ -82,7 +82,8 @@ export class ProductionComponent implements OnInit {
         this.editProductione.prid = prid;
         this.editProductione.prName = prname;
         this.editProductione.meterPr = meterpr;
-        this.editProductione.tarikh = tarikh;
+        const date = new Date(tarikh);
+        this.editProductione.tarikh = date;
         this.editProductione.descreption = descreption;
 
         this.textileService.saveProduction(this.editProductione).subscribe(

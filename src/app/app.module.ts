@@ -21,11 +21,13 @@ import {SignUpComponent} from './admin/sign-up/sign-up.component';
 import {SignInComponent} from './admin/sign-in/sign-in.component';
 import {DashboardComponent} from './admin/dashboard/dashboard.component';
 import {UserService} from './services/user.service';
-
+import {AuthGaurd} from './services/auth/auth-guard.service';
+import {AuthService} from './services/auth/auth.service';
+import {AuthPageComponent} from './auth-page/auth-page.component';
 
 
 const routes: Routes = [
-    {path: '', component: ManagementSaleComponent},
+    {path: '', canActivate: [AuthGaurd], component: ManagementSaleComponent},
     {path: 'production', component: ProductionComponent},
     {path: 'customer', component: CustomerComponent},
     {path: 'report', component: ReportComponent},
@@ -36,6 +38,7 @@ const routes: Routes = [
         ]
     },
     {path: 'signUp', component: SignUpComponent},
+    {path: 'auth', component: AuthPageComponent}
 ];
 
 
@@ -50,7 +53,8 @@ const routes: Routes = [
         AdminComponent,
         SignUpComponent,
         SignInComponent,
-        DashboardComponent
+        DashboardComponent,
+        AuthPageComponent
     ],
     imports: [
         BrowserModule,
@@ -65,7 +69,7 @@ const routes: Routes = [
         MatFormFieldModule,
         MatNativeDateModule
     ],
-    providers: [TextileService, ManagementsaleService, Title, UserService],
+    providers: [TextileService, ManagementsaleService, Title, UserService, AuthGaurd, AuthService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
