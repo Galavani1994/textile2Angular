@@ -388,7 +388,7 @@ code:
     - sitemap
     - stream
     - terminal
-    - user-secret
+    - body-secret
     - window-close
     - window-maximize
     - window-minimize
@@ -638,7 +638,7 @@ education:
     - school
     - shapes
     - theater-masks
-    - user-graduate
+    - body-graduate
   label: Education
 emoji:
   icons:
@@ -789,7 +789,7 @@ health:
     - plus-square
     - prescription
     - stethoscope
-    - user-md
+    - body-md
     - wheelchair
   label: Health
 holiday:
@@ -978,9 +978,9 @@ interfaces:
     - undo
     - undo-alt
     - upload
-    - user
-    - user-alt
-    - user-circle
+    - body
+    - body-alt
+    - body-circle
     - volume-down
     - volume-mute
     - volume-off
@@ -1207,7 +1207,7 @@ medical:
     - teeth-open
     - thermometer
     - tooth
-    - user-md
+    - body-md
     - vial
     - vials
     - weight
@@ -1688,10 +1688,10 @@ status:
     - toggle-on
     - unlock
     - unlock-alt
-    - user
-    - user-alt
-    - user-alt-slash
-    - user-slash
+    - body
+    - body-alt
+    - body-alt-slash
+    - body-slash
     - video
     - video-slash
     - volume-down
@@ -1772,29 +1772,29 @@ users-people:
     - snowboarding
     - street-view
     - swimmer
-    - user
-    - user-alt
-    - user-alt-slash
-    - user-astronaut
-    - user-check
-    - user-circle
-    - user-clock
-    - user-cog
-    - user-edit
-    - user-friends
-    - user-graduate
-    - user-injured
-    - user-lock
-    - user-md
-    - user-minus
-    - user-ninja
-    - user-plus
-    - user-secret
-    - user-shield
-    - user-slash
-    - user-tag
-    - user-tie
-    - user-times
+    - body
+    - body-alt
+    - body-alt-slash
+    - body-astronaut
+    - body-check
+    - body-circle
+    - body-clock
+    - body-cog
+    - body-edit
+    - body-friends
+    - body-graduate
+    - body-injured
+    - body-lock
+    - body-md
+    - body-minus
+    - body-ninja
+    - body-plus
+    - body-secret
+    - body-shield
+    - body-slash
+    - body-tag
+    - body-tie
+    - body-times
     - users
     - users-cog
     - walking

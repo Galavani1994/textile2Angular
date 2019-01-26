@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../services/auth/auth.service';
+import {UserService} from '../services/user.service';
 
 @Component({
     selector: 'app-auth-page',
@@ -8,14 +9,24 @@ import {AuthService} from '../services/auth/auth.service';
 })
 export class AuthPageComponent implements OnInit {
 
-    constructor(private authService: AuthService) {
+    body = {username: null, password: null};
+
+    constructor(private authService: AuthService, private userservice: UserService) {
     }
 
     ngOnInit() {
     }
 
-    onloggin() {
-        this.authService.login();
-        alert('شما با موفقیت وارد حساب کاربری خود شده اید');
+    logInToserver() {
+        this.userservice.signInUser(this.body).subscribe(
+            (response) => {
+                console.log(response);
+            }, error1 => {
+                console.log('failed login');
+            },
+            () => {
+                this.authService.login();
+            }
+        );
     }
 }

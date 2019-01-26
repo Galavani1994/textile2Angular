@@ -1,23 +1,25 @@
 <div>
-  <div style="text-align: center">
-    <h1 style="color: red;font-family:'B Titr'">شما اجازه دسترسی ندارید</h1>
-    <h3 style="color: blue;font-family:'2  Mitra'">جهت دسترسی، نام کاربری و رمز عبور خود را وارد کنید</h3>
-  </div>
-  <div class="row">
-    <div class="col-lg-4"></div>
-    <div class="col-lg-4" style="text-align: right;font-family: '2  Mitra';padding-top: 25px">
-      <form>
-        <table>
-          <tr>نام کاربری</tr>
-          <tr><input type="text" class="form-control" style="margin-bottom: 15px"></tr>
-          <tr>رمز عبور</tr>
-          <tr><input type="text" class="form-control"></tr>
-        </table>
-        <hr>
-        <input type="button" value="ورود" class="btn btn-primary" (click)="onloggin()">
-      </form>
+    <div style="text-align: center">
+        <h1 style="color: red;font-family:'B Titr'">شما اجازه دسترسی ندارید</h1>
+        <h3 style="color: blue;font-family:'2  Mitra'">جهت دسترسی، نام کاربری و رمز عبور خود را وارد کنید</h3>
     </div>
-    <div class="col-lg-4"></div>
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4" style="text-align: right;font-family: '2  Mitra';padding-top: 25px">
+            <form>
+                <table>
+                    <tr>نام کاربری</tr>
+                    <tr><input type="text" class="form-control" style="margin-bottom: 15px"
+                               name="username" [(ngModel)]="body.username"></tr>
+                    <tr>رمز عبور</tr>
+                    <tr><input type="text" class="form-control"
+                               name="password" [(ngModel)]="body.password"></tr>
+                </table>
+                <hr>
+                <input type="button" value="ورود" class="btn btn-primary" (click)="logInToserver()">
+            </form>
+        </div>
+        <div class="col-lg-4"></div>
 
-  </div>
+    </div>
 </div>

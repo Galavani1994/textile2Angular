@@ -85,23 +85,18 @@
                 </div>
             </div>
             <div id="reportPr" class="collapse">
-                <div class="table-wrapper-scroll-y">
+                <form>
                     <table>
-                        <tr>
-                            <td>شماره</td>
-                            <td>استان</td>
-                            <td>شهرستان</td>
-                            <td>شهر</td>
-                        </tr>
-                        <tr *ngFor="let iran of iran96.IranDetails; index as i">
-                            <td><input type="text" value="{{i+1}}"></td>
-                            <td><input type="text" value="{{iran.province}}"></td>
-                            <td><input type="text" value="{{iran.state}}"></td>
-                            <td><input type="text" value="{{iran.city}}"></td>
-                        </tr>
+                        <tr>نام کاربری</tr>
+                        <tr><input type="text" class="form-control" style="margin-bottom: 15px"
+                                   name="username" [(ngModel)]="body.username"></tr>
+                        <tr>رمز عبور</tr>
+                        <tr><input type="text" class="form-control"
+                                   name="password" [(ngModel)]="body.password"></tr>
                     </table>
-
-                </div>
+                    <hr>
+                    <input type="button" value="ورود" class="btn btn-primary" (click)="onLogIn()">
+                </form>
             </div>
         </div>
         <div class="col-lg-1">

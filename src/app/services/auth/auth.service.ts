@@ -1,7 +1,10 @@
 import {Promise} from 'q';
+import {HttpClient} from '@angular/common/http';
+
 
 export class AuthService {
     loggedIn = false;
+
 
     isAuthenticate() {
         const promise = new Promise(
@@ -15,6 +18,7 @@ export class AuthService {
         return promise;
     }
 
+
     login() {
         this.loggedIn = true;
     }
@@ -22,4 +26,5 @@ export class AuthService {
     logout() {
         this.loggedIn = false;
     }
+
 }

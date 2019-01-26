@@ -5616,7 +5616,7 @@ female:
       - human
       - person
       - profile
-      - user
+      - body
       - woman
   styles:
     - solid
@@ -9679,7 +9679,7 @@ male:
       - man
       - person
       - profile
-      - user
+      - body
   styles:
     - solid
   unicode: f183
@@ -16211,7 +16211,7 @@ user-md:
     - 5.0.3
     - 5.0.7
     - 5.0.11
-  label: user-md
+  label: body-md
   search:
     terms:
       - doctor

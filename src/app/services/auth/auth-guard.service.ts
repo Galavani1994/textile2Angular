@@ -11,8 +11,6 @@ export class AuthGaurd implements CanActivate, CanActivateChild {
     constructor(private authService: AuthService, private router: Router) {
     }
 
-    ll
-
     canActivate(route: ActivatedRouteSnapshot,
                 state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
         return this.authService.isAuthenticate().then(

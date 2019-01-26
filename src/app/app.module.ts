@@ -28,11 +28,11 @@ import {AuthPageComponent} from './auth-page/auth-page.component';
 
 const routes: Routes = [
     {path: '', canActivate: [AuthGaurd], component: ManagementSaleComponent},
-    {path: 'production', component: ProductionComponent},
-    {path: 'customer', component: CustomerComponent},
-    {path: 'report', component: ReportComponent},
+    {path: 'production', canActivate: [AuthGaurd], component: ProductionComponent},
+    {path: 'customer', canActivate: [AuthGaurd], component: CustomerComponent},
+    {path: 'report', canActivate: [AuthGaurd], component: ReportComponent},
     {
-        path: 'admin', component: AdminComponent, children: [
+        path: 'admin', canActivateChild: [AuthGaurd], component: AdminComponent, children: [
             {path: 'signIn', component: SignInComponent},
             {path: 'dashboard', component: DashboardComponent}
         ]

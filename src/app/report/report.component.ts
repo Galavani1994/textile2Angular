@@ -2,6 +2,7 @@ import {Component, DoCheck, ElementRef, OnChanges, OnInit, Renderer2, ViewChild}
 import {ManagementsaleService} from '../services/managementsale.service';
 import {Cp} from '../model/cp';
 import {Iran9697} from '../model/iran96-97';
+import {UserService} from '../services/user.service';
 
 
 @Component({
@@ -25,10 +26,10 @@ export class ReportComponent implements OnInit {
         format: 'YYYY/MM/DD'
     };
     let;
-    iran96: Iran9697 = new Iran9697();
+    body = {username: null, password: null};
 
 
-    constructor(private managementService: ManagementsaleService) {
+    constructor(private managementService: ManagementsaleService, private userservice: UserService) {
     }
 
 
@@ -69,5 +70,14 @@ export class ReportComponent implements OnInit {
             }
         );
 
+    }
+
+    onLogIn() {
+        console.log(this.body);
+        /*this.userservice.signInUser(this.body).subscribe(
+            (response) => {
+                console.log(response);
+            }
+        );*/
     }
 }
